@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import fire, { createUserProfileDocument } from './firebase/firebase';
 import { BrowserRouter, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 
+
+import { setCurrentUser } from './redux/user/user.actions';
 
 
 import Header from './components/header/header.component';
@@ -55,13 +58,7 @@ class App extends Component {
     ]
   };
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      user: {}
-    }
-  };
+  
 
   componentWillMount() {
     this.authListener();
@@ -73,7 +70,7 @@ class App extends Component {
         const userRef = createUserProfileDocument(userAuth);
 
         (await userRef).onSnapshot(snapshot => {
-          this.setState({
+          this.props.setCurrentUser({
             user: {
               id: snapshot.id,
               ...snapshot.data()
@@ -81,7 +78,7 @@ class App extends Component {
           });
         });
       } else {
-        this.setState({user: userAuth});
+        this.props.setCurrentUser(userAuth);
       }
       localStorage.setItem("user",userAuth);
     })
@@ -102,7 +99,7 @@ class App extends Component {
     return (
       <BrowserRouter>
       <div>
-        <Header user={this.state.user} />
+        <Header />
         <Route path='/' component={this.home} exact />
         <SigninSignup />
       </div>
@@ -111,7 +108,11 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = dispatch => ({
+  setCurrentUser: user => dispatch(setCurrentUser(user))
+});
+
+export default connect(null, mapDispatchToProps)(App);
 
 
 

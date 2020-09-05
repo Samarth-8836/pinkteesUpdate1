@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './header.styles.css';
 import fire from '../../firebase/firebase';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class Header extends Component {
     constructor(props) {
@@ -51,4 +52,10 @@ class Header extends Component {
     }
 };
 
-export default Header; 
+
+const mapStateToProps = (state) => ({
+    user: state.user.currentUser
+});
+
+
+export default connect(mapStateToProps)(Header); 
