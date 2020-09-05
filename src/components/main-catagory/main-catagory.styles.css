@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital@1&display=swap');
+
+.mainCatagoryTitle {
+    margin: 5px 0px 5px 10px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: 1px;
+    color: #073D49;
+    font-size: 45px;
+}
+
+.mainCatagoryDisplayContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 2% 0;
+}
+
+.mainCatagoryDisplay {
+    background-color: #ffffff;
+    margin: 0 8%;
+}
+
+.mainCatagoryDisplayImage {
+    width: 100%;
+}
+
+.mainCatagoryDisplayTitle {
+    margin: 5px 0px 5px 10px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-style: italic;
+    font-weight: normal;
+    letter-spacing: 1px;
+    color: #009280;
+    font-size: 30px;
+}
+
+.mainCatagoryDisplayDiscription {
+    margin: 0px 0px 5px 10px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    color: #919191;
+    font-size: 15px;
+}
+
+
+/*=======================================================*/
+
+
+
+@media all and (min-width: 2000px) {
+    .mainCatagoryDisplayTitle {
+        font-size: 50px;
+    }
+}
+
+
+
+
+
+
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/* repeat(auto-fit, minmax(168px, 1fr)) */
+/* .mainCatagoryDisplayContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 10fr));
+    justify-items: center;
+}
+
+.mainCatagoryDisplay {
+    background-color: #ffffff;
+    margin: 0 1%;
+}
+
+.mainCatagoryDisplayImage {
+    width: 100%;
+}
+
+.mainCatagoryDisplayTitle {
+    margin: 5px 0px 5px 10px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-style: italic;
+    font-weight: normal;
+    letter-spacing: 1px;
+    color: #009280;
+    font-size: 25px;
+}
+
+.mainCatagoryDisplayDiscription {
+    margin: 0px 0px 5px 10px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    color: #919191;
+    font-size: 15px;
+}
+
+/* @media all and (min-width: 1900px) {
+    .mainCatagoryDisplayContainer {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(566px, 1fr));
+    }
+
+    .mainCatagoryDisplayTitle {
+        font-size: 50px;
+    }
+
+    
+}  */

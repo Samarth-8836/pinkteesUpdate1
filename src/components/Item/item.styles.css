@@ -1,0 +1,4 @@
+.sellingHotContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(168px, 1fr));
+}

@@ -1,0 +1,114 @@
+.mainHeaderComponent {
+    top: 0px;
+    background-color: #073D49;
+    height: 79px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    z-index: 100;
+}
+
+.logoComponent {
+    height: 100%;
+    width: 70px;
+    background-image: url(../../assets/logo_updated.png);
+    background-repeat: no-repeat;
+    margin-left: 20px;
+}
+
+.mainHeaderItems{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.mainHeaderMenuComponent {
+    padding: 10px 10px;
+    cursor: pointer;
+    list-style-type: none;
+    margin: 10%;
+}
+
+.wishlistHeader {
+    background-image: url(../../assets/mini-icons/Icon_love_updated.png);
+    background-size: cover;
+}
+
+.cartHeader {
+    background-image: url(../../assets/mini-icons/Icon_cart_updated.png);
+}
+
+.menuHeader {
+    background-image: url(../../assets/mini-icons/Icon_menu_updated.png);
+    margin-right: 15px;
+}
+
+
+
+
+
+
+
+.menuContainer {
+    position: fixed;
+    top: 0%;
+    height: 100%;
+    width: 70%;
+    right: 0;
+    background-color: white;
+    z-index: 10000;
+}
+
+.menuContainerOff {
+    display: none;
+}
+
+.menuTitle {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-style: normal;
+    font-weight: bolder;
+    letter-spacing: 1px;
+    color: #073D49;
+    font-size: 40px;
+    margin: 20% 0px 5px 10px;
+    text-align: center;
+}
+
+.menuItems {
+    font-family: serif;
+    font-size: 19px;
+    letter-spacing: 1px;
+    color: #073D49;
+    margin: 50px 0px 5px 30px;
+}
+
+.menuItem {
+    margin: 25px 0px 25px 0px;
+}
+
+.menuClose {
+    position: fixed;
+    margin-top: 30px;
+    margin-left: 10px;
+    cursor: pointer;
+    background-image: url('../../assets/mini-icons/icon_arrow_back_updated.png');
+    background-repeat: no-repeat;
+    background-size: inherit;
+    height: 21px;
+    width: 20px;
+}
+
+
+
+
+
+.backdrop {
+    background-color: rgba(0, 0, 0, 0.644);
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0%;
+}

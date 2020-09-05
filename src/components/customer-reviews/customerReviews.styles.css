@@ -1,0 +1,26 @@
+.customerReviewsTitle {
+    color: #073D49;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 30px;
+    margin: 10px 10px 5px 10px;
+}
+
+.customerReviewsContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.customerReviewsSlider {
+    margin: 6px;
+    border-bottom: thin solid #919191;
+    width: 100vw;
+    height: fit-content;
+    max-height: 120px;
+    overflow: hidden;
+}
+
+.slick-dots {
+    size: 200px;
+}

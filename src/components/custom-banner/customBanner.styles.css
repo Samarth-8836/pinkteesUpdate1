@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+.customBannerTitle {
+    margin: 5px 0px 5px 10px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: 1px;
+    color: #073D49;
+    font-size: 45px;
+}
+
+.customBannerImage { 
+    width: 100vw;
+}
+
+.customBannerDescription {
+    margin: 5px 10px 5px 10px;
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 28;
+    color: #919191;
+}

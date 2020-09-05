@@ -1,0 +1,43 @@
+.wishlist {
+    background-image: url(../../assets/mini-icons/icon_love_filled_updated.png);
+}
+
+.cart {
+    background-image: url(../../assets/mini-icons/Icon_cart_dark_updated.png);
+}
+
+.iconComponent {
+    padding: 10px 10px;
+    cursor: pointer;
+    list-style-type: none;
+    margin: 9px;
+    height: 2px;
+    width: 2px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    float: left;
+}
+
+.productDisplayContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.productDisplayName {
+    color: #073D49;
+    margin: 5px 0px 5px 10px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: 1px;
+    font-size: 25px;
+}
+
+.productDisplaySliderContainer {
+    padding: 10px;
+}
+
+.productDisplayMainContainer {
+    border: 0.5px solid gray;
+    margin: 5px;
+}

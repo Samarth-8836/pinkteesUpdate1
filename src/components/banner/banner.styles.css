@@ -1,0 +1,30 @@
+.slides .slick-prev,
+.slides .slick-next {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+}
+
+
+.slides {
+  position: relative;
+}
+
+.slides .slick-prev {
+  left: 5%;
+}
+
+.slides .slick-next {
+  right: 5%;
+}
+
+.slick-dots {
+    transform: translateY(-35px);
+    background-color: #aec2c72f;
+    transition: 0.5s;
+}
+
+.slick-dots:hover {
+    transform: translateY(-35px);
+    background-color: #aec2c7b9;
+}

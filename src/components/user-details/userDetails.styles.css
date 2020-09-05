@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+.userDetailsContainer {
+    height: 58vh;
+    margin: 15vh 0 0 0;
+}
+
+.userDetailsUserInfoContainer {
+    border-bottom: 1px groove black;
+    margin: 20px 0 20px 0;
+    display: flex;
+}
+
+.userDetailsTitle {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: 1px;
+    color: #073D49;
+    font-size: 45px;
+    margin: 0px 0px 5px 10px;
+}
+
+.userDetailsUserTitle {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 17px;
+    margin: 0px 0px 5px 10px;
+    color: #009280;
+    flex: 2 0 0;
+}
+
+.userDetailsUserTitleActual {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    margin: 0px 0px 5px 10px;
+    color: #073D49;
+}
+
+.editIcon {
+    background-image: url('../../assets/mini-icons/Icon_edit_outline.png');
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
+.editIcon:hover {
+    cursor: pointer;
+}

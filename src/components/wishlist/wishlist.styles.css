@@ -1,0 +1,91 @@
+.wishlistTitle {
+    margin: 5px 0px 5px 10px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: 1px;
+    color: #073D49;
+    font-size: 50px;
+}
+
+.wishlistItemDisplay {
+    display: flex;
+}
+
+.wishlistItemImage {
+    background-image: url('../../assets/Womens/womens_white.png');
+    height: 140px;
+    width: 140px;
+    background-size: cover;
+}
+
+.wishlistItemTitle {
+    margin: 0px 0px 5px 10px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: 1px;
+    color: #073D49;
+    font-size: 25px;
+}
+
+.wishlistItemSize {
+    margin: 5px 0px 5px 10px;
+    font-size: 12px;
+    font-family: sans-serif;
+}
+
+.wishlistItemPrice {
+    float: left;
+    margin-top: 5px;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+
+.wishlistItemRemove {
+    float: right;
+    height: 30px;
+    width: fit-content;
+    background-color: #073D49;
+    color: white;
+    border: none;
+}
+
+.wishlistItemRemoveOne {
+    float: right;
+    margin: 0 5px 10px 5px;
+    height: 30px;
+    width: 20px;
+}
+
+.wishlistItemQuantity {
+    float: right;
+    padding: 7px 0 0 0;
+}
+
+.wishlistItemAddOne {
+    float: right;
+    margin: 0 0 10px 5px;
+    height: 30px;
+    width: 20px;
+}
+
+
+
+
+
+.box-wrapper {
+    display: block;
+    position: relative;
+    margin: 5px 5px;
+}
+.box-wrapper:before, .box-wrapper:after{
+  clear:both;
+  display:table;
+  content:"";
+}
+.box-tall {
+    width: fit-content;
+    float: left;
+    margin-right: 5px;
+}
