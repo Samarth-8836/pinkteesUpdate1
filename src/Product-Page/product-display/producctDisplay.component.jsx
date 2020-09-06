@@ -2,7 +2,7 @@ import React from 'react';
 import './productDisplay.styles.css';
 import Slider from 'react-slick';
 import photo1 from '../../assets/Womens/womens_black.png';
-import photo2 from '../../assets/Womens/womens_grey.png';
+import photo2 from '../../assets/Womens/womens_grey.png'; 
 
 const ProductDisplay = () => {
 

@@ -13,16 +13,12 @@ import SellingHot from './components/selling-hot/selling-hot.component';
 import Banner from './components/banner/banner.component';
 import CustomBanner from './components/custom-banner/customBanner.component';
 import SigninSignup from './components/signin-signup/signinSignup.component';
-import ProductDisplay from './components/product-display/producctDisplay.component';
-import PriceItemDisplay from './components/price/priceItemDisplay.component';
-import ColorSize from './components/color-size/colorSize.component';
-import Description from './components/description/description.component';
-import CustomerReviews from './components/customer-reviews/customerReviews.component';
-import MoreLikeThis from './components/more-like-this/moreLikeThis.component';
+import ProductPage from './Product-Page/product-page.component';
 import UserDetails from './components/user-details/userDetails.component';
 import Cart from './components/cart/cart.component';
 import Wishlist from './components/wishlist/wishlist.component';
-
+import Mens from './components/mens/mens.component';
+import Womens from './components/womens/womens.component';
 
 
 
@@ -37,12 +33,7 @@ class App extends Component {
       <SellingHot />
     ],
     ProductPage: [
-      <ProductDisplay />,
-      <PriceItemDisplay />,
-      <ColorSize />,
-      <Description />,
-      <CustomerReviews />,
-      <MoreLikeThis />
+      <ProductPage />
     ],
     SignInSignUp: [
       <SigninSignup />
@@ -95,12 +86,35 @@ class App extends Component {
     );
   }
 
+
+
+  mens = () => {
+    return(
+      <Mens />
+    );
+  }
+
+  womens = () => {
+    return(
+      <Womens />
+    );
+  }
+
+  ProductPage = () => {
+    return(
+      <ProductPage />
+    );
+  }
+
   render() {
     return (
       <BrowserRouter>
       <div>
         <Header />
         <Route path='/' component={this.home} exact />
+        <Route path='/mens' component={this.mens} exact/>
+        <Route path='/womens' component={this.womens} exact/>
+        <Route path='/WonderWomen' component={this.ProductPage} exact/>
         <SigninSignup />
       </div>
       </BrowserRouter>

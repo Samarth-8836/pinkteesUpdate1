@@ -3,14 +3,27 @@ import './header.styles.css';
 import fire from '../../firebase/firebase';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Cart from '../cart/cart.component';
+import Wishlist from '../wishlist/wishlist.component';
 
 class Header extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            isSwitchOn: false
+            isSwitchOn: false,
+            isSwitchOnCart: false,
+            isSwitchOnWishlist: false
         }
+    }
+
+    cartClickHandler = () => {
+        this.setState({isSwitchOnCart: !(this.state.isSwitchOnCart)});
+        window.location.assign('/');
+    }
+    wishlistClickHandler = () => {
+        this.setState({isSwitchOnWishlist: !(this.state.isSwitchOnWishlist)});
+        window.location.assign('/'); 
     }
 
     render() {
@@ -18,8 +31,30 @@ class Header extends Component {
             <div className='mainHeaderComponent'>
                 <div className='logoComponent'></div>
                 <ul className='mainHeaderItems'>
-                    <li className='mainHeaderMenuComponent wishlistHeader'></li>
-                    <li className='mainHeaderMenuComponent cartHeader'></li>
+                    <Link to='/wishlist'><li className='mainHeaderMenuComponent wishlistHeader' onClick={() => this.setState({isSwitchOnWishlist: true, isSwitchOnCart: false}) }></li></Link>
+                    {   this.state.isSwitchOnWishlist ? 
+                        <div>
+                            <div className='cartClose' onClick={this.wishlistClickHandler} />
+                            <div className={`wishlistContainer`}>
+                                <Wishlist />
+                            </div>
+                        </div>
+                    : 
+                        <div></div>
+                    }
+                    
+                    <Link to='/cart'><li className='mainHeaderMenuComponent cartHeader' onClick={() => this.setState({isSwitchOnCart: true, isSwitchOnWishlist: false}) }></li></Link>
+                    {   this.state.isSwitchOnCart ? 
+                        <div>
+                            <div className='cartClose' onClick={this.cartClickHandler} />
+                            <div className={`cartContainer`}>
+                                <Cart />
+                            </div>
+                        </div>
+                    : 
+                        <div></div>
+                    }
+
                     <li className='mainHeaderMenuComponent menuHeader' onClick={() => this.setState({isSwitchOn: true}) }></li>
                         {   this.state.isSwitchOn ? 
                                 <div className='backdrop'>

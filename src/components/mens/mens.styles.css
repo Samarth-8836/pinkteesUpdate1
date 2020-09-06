@@ -1,0 +1,51 @@
+
+
+.mensTitle {
+    margin: 5px 0px 5px 10px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: 1px;
+    color: #073D49;
+    font-size: 45px;
+}
+
+.displayItemContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(168px, 1fr));
+}
+
+.mensDisplay {
+    background-color: #ffffff;
+    margin: 2% 2% 2% 2%;
+}
+
+.mensDisplayImage {
+    width: 100%;
+}
+
+.mensDisplayName {
+    margin: 5px 0px 5px 10px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-style: italic;
+    font-weight: normal;
+    letter-spacing: 1px;
+    color: #009280;
+    font-size: 23px;
+}
+
+.mensClose {
+    margin: 8px 0 2px 8px;
+    cursor: pointer;
+    background-image: url('../../assets/mini-icons/icon_arrow_back_updated.png');
+    background-repeat: no-repeat;
+    background-size: inherit;
+    height: 21px;
+    width: 20px;
+}
+
+@media all and (min-width: 1900px) {
+    .mensDisplayName {
+        font-size: 30px;
+    }
+} 
