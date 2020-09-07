@@ -6,17 +6,17 @@ import Description from './description/description.component';
 import CustomerReviews from './customer-reviews/customerReviews.component';
 import MoreLikeThis from './more-like-this/moreLikeThis.component';
 
-const ProductPageWonderWomen = () => {
+const ProductPage = ({price, title, description, images}) => {
     return(
         <div>
-            <ProductDisplay />
-            <PriceItemDisplay />
+            <ProductDisplay title={title} images={images} />
+            <PriceItemDisplay price={price} />
             <ColorSize />
-            <Description />
+            <Description description={description} />
             <CustomerReviews />
             <MoreLikeThis />
         </div>
     );
 }
 
-export default ProductPageWonderWomen;
+export default ProductPage;

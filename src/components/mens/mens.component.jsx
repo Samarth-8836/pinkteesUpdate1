@@ -1,70 +1,82 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './mens.styles.css';
-import { Link } from 'react-router-dom';
+import productListMen from '../../productlist.js';
+import ProductPage from '../../Product-Page/product-page.component';
 
-const mens = () => {
-    return(
-        <div>
-            <div className='mensClose' onClick={() => window.history.back()} />
+class mens extends Component {
 
-            <div className='mensContainer'>
-            
-                <div className='mensTitle'>MENS</div>
+    constructor() {
+        super();
 
-                <div className='displayItemContainer'>
+        this.state = {
+            clicked : false,
+            whichClicked : "some"
+        }
+    }
+
+    clicked = (men) => {
+        this.setState({clicked: true});
+        this.setState({whichClicked: men});
+    }
+
+    
+
+    render() {
+        return(
+            <div>
+                <div className={ this.state.clicked ? 'displayItemContainerFalse' : 'mensClose' } onClick={() => window.history.back()} />
+
+                <div className='mensContainer'>
                 
-                    <Link to='/WonderWomen'>
-                        <div className='mensDisplay'>
-                            <div className='mensDisplayImage'>
-                                <img src={'https://firebasestorage.googleapis.com/v0/b/pinktees-a082b.appspot.com/o/WonderWomen.png?alt=media&token=ff7d9ab1-355b-433b-a0c7-566a874c08ac'} alt='Mens Catagory' className='mensDisplayImage' />
-                            </div>
-                            <div className='mensDisplayName'>
-                                Wonder Women
-                            </div>
-                        </div>
-                    </Link>
+                    <div className={ this.state.clicked ? 'displayItemContainerFalse' : 'mensTitle' }>MENS</div>
 
-                    <div className='mensDisplay'>
-                        <div className='mensDisplayImage'>
-                            <img src={'https://firebasestorage.googleapis.com/v0/b/pinktees-a082b.appspot.com/o/WonderWomen.png?alt=media&token=ff7d9ab1-355b-433b-a0c7-566a874c08ac'} alt='Mens Catagory' className='mensDisplayImage' />
-                        </div>
-                        <div className='mensDisplayName'>
-                            Wonder Women
-                        </div>
+                    <div className={ this.state.clicked ? 'displayItemContainerFalse' : 'displayItemContainer' }>
+                    
+                        
+                        {
+                            productListMen.map( (men) => {
+                                return(
+                                    <div>
+                                        {
+                                            this.state.clicked ? 
+                                            
+                                                <div />
+
+                                            :
+                            
+                                                <div className='mensDisplay' onClick={() => this.clicked(men)}>
+                                                    <div className='mensDisplayImage'>
+                                                        <img src={men['imgUrl']} alt='Mens Catagory' className='mensDisplayImage' />
+                                                    </div>
+                                                    <div className='mensDisplayName'>
+                                                        {men['title']}
+                                                    </div>
+                                                </div>
+                                        }
+                                        
+                                    </div>
+                                );
+                            })
+                        }
+
                     </div>
-
-                    <div className='mensDisplay'>
-                        <div className='mensDisplayImage'>
-                            <img src={'https://firebasestorage.googleapis.com/v0/b/pinktees-a082b.appspot.com/o/WonderWomen.png?alt=media&token=ff7d9ab1-355b-433b-a0c7-566a874c08ac'} alt='Mens Catagory' className='mensDisplayImage' />
-                        </div>
-                        <div className='mensDisplayName'>
-                            Wonder Women
-                        </div>
-                    </div>
-
-                    <div className='mensDisplay'>
-                        <div className='mensDisplayImage'>
-                            <img src={'https://firebasestorage.googleapis.com/v0/b/pinktees-a082b.appspot.com/o/WonderWomen.png?alt=media&token=ff7d9ab1-355b-433b-a0c7-566a874c08ac'} alt='Mens Catagory' className='mensDisplayImage' />
-                        </div>
-                        <div className='mensDisplayName'>
-                            Wonder Women
-                        </div>
-                    </div>
-
-                    <div className='mensDisplay'>
-                        <div className='mensDisplayImage'>
-                            <img src={'https://firebasestorage.googleapis.com/v0/b/pinktees-a082b.appspot.com/o/WonderWomen.png?alt=media&token=ff7d9ab1-355b-433b-a0c7-566a874c08ac'} alt='Mens Catagory' className='mensDisplayImage' />
-                        </div>
-                        <div className='mensDisplayName'>
-                            Wonder Women
-                        </div>
-                    </div>
-
+                    
+                    {
+                        this.state.clicked ? 
+                            <ProductPage 
+                                price={this.state.whichClicked['price']} 
+                                title={this.state.whichClicked['title']}
+                                description={this.state.whichClicked['description']}
+                                images={this.state.whichClicked['imgUrl']}
+                            />
+                        :
+                            <div />
+                    }
+                
                 </div>
-            
             </div>
-        </div>
-    );
+        );
+    }
 }
 
 export default mens;

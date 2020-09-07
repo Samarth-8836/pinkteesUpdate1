@@ -1,21 +1,14 @@
 import React from 'react';
 import './productDisplay.styles.css';
 import Slider from 'react-slick';
-import photo1 from '../../assets/Womens/womens_black.png';
-import photo2 from '../../assets/Womens/womens_grey.png'; 
 
-const ProductDisplay = () => {
+const ProductDisplay = (props) => {
 
-    const photos = [
-        {
-            name: 'photo1',
-            url: photo1
-        },
-        {
-            name: 'photo2',
-            url: photo2
-        }
-    ]
+
+    const photos = props.images.map( (image) => {
+        return { url: image }
+    });
+    
     
     const settings = {
         dots: false,
@@ -36,14 +29,14 @@ const ProductDisplay = () => {
                 { photos.map((photo) => {
                     return (
                         <div>
-                            <img width="100%" src={photo.url} alt='bannerones'/>
+                            <img width="100%" height='400px' src={photo.url} alt='bannerones'/>
                         </div>
                     );
                 })}
             </Slider>
             <div className='productDisplayContainer'>
                 <div className='productDisplayName'>
-                    Product Name
+                    {props.title}
                 </div>
                 <div className='productDisplayIconContainer'>
                     <div className='iconComponent cart' />

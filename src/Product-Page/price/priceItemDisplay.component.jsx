@@ -1,10 +1,10 @@
 import React from 'react';
 import './priceItemDisplay.styles.css';
 
-const PriceItemDisplay = () => {
+const PriceItemDisplay = (props) => {
     return (
         <div className='priceItemDisplay'>
-            Rs. 400
+            {props.price}
         </div>
     );
 }

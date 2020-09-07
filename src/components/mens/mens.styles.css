@@ -15,6 +15,10 @@
     grid-template-columns: repeat(auto-fit, minmax(168px, 1fr));
 }
 
+.displayItemContainerFalse {
+    display: none;
+}
+
 .mensDisplay {
     background-color: #ffffff;
     margin: 2% 2% 2% 2%;
