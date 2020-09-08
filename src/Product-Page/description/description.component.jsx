@@ -5,7 +5,7 @@ const Description = (props) => {
     return (
         <div className='descriptionConatiner'>
             <div className='descriptionTitle'>Description</div>
-            <div className='descriptionContent'>{props.description}</div>
+            <div className='descriptionContent'>{props.product.description}</div>
         </div>
     );
 }

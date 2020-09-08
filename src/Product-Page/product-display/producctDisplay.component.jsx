@@ -5,7 +5,7 @@ import Slider from 'react-slick';
 const ProductDisplay = (props) => {
 
 
-    const photos = props.images.map( (image) => {
+    const photos = props.product.imgUrl.map( (image) => {
         return { url: image }
     });
     
@@ -36,7 +36,7 @@ const ProductDisplay = (props) => {
             </Slider>
             <div className='productDisplayContainer'>
                 <div className='productDisplayName'>
-                    {props.title}
+                    {props.product.title}
                 </div>
                 <div className='productDisplayIconContainer'>
                     <div className='iconComponent cart' />
@@ -46,5 +46,8 @@ const ProductDisplay = (props) => {
         </div>
     );
 }
+
+
+
 
 export default ProductDisplay;

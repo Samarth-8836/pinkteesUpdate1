@@ -19,11 +19,11 @@ class Header extends Component {
 
     cartClickHandler = () => {
         this.setState({isSwitchOnCart: !(this.state.isSwitchOnCart)});
-        window.location.assign('/');
+        window.history.back();
     }
     wishlistClickHandler = () => {
         this.setState({isSwitchOnWishlist: !(this.state.isSwitchOnWishlist)});
-        window.location.assign('/'); 
+        window.history.back(); 
     }
 
     render() {

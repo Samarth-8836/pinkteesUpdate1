@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import fire, { createUserProfileDocument } from './firebase/firebase';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 
@@ -111,10 +111,14 @@ class App extends Component {
       <BrowserRouter>
       <div>
         <Header />
+        <Switch>
         <Route path='/' component={this.home} exact />
         <Route path='/mens' component={this.mens} exact/>
         <Route path='/womens' component={this.womens} exact/>
         <Route path='/WonderWomen' component={this.ProductPage} exact/>
+        <Route path='/wishlist' component={this.Wishlist} exact/>
+        <Route path='/cart' component={this.Cart} exact/>
+        </Switch>
         <SigninSignup />
       </div>
       </BrowserRouter>

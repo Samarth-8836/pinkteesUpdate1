@@ -63,12 +63,7 @@ class mens extends Component {
                     
                     {
                         this.state.clicked ? 
-                            <ProductPage 
-                                price={this.state.whichClicked['price']} 
-                                title={this.state.whichClicked['title']}
-                                description={this.state.whichClicked['description']}
-                                images={this.state.whichClicked['imgUrl']}
-                            />
+                            <ProductPage product={this.state.whichClicked} />
                         :
                             <div />
                     }

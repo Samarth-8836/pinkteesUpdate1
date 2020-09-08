@@ -7,7 +7,8 @@ const productListMen = [
         size: ["X", "XL"],
         color: ["Red", "Black"],
         reviews: [],
-        moreLikeThis: []
+        moreLikeThis: [],
+        id: 1
     },
     {
         title: "Wonder Women",
@@ -17,17 +18,8 @@ const productListMen = [
         size: ["X", "XL"],
         color: ["Red", "Black"],
         reviews: [],
-        moreLikeThis: []
-    },
-    {
-        title: "Wonder Women",
-        price: "Rs. 700",
-        description: "Lorem Ipsumsdfds",
-        imgUrl: ["https://firebasestorage.googleapis.com/v0/b/pinktees-a082b.appspot.com/o/BlackPanther.png?alt=media&token=2cf3dc7a-db9e-4de4-a4fc-0c03ee445589"],
-        size: ["X", "XL"],
-        color: ["Red", "Black"],
-        reviews: [],
-        moreLikeThis: []
+        moreLikeThis: [],
+        id: 2
     }
 ]
 

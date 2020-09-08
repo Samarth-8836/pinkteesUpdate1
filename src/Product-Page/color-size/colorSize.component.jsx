@@ -1,13 +1,21 @@
 import React from 'react';
+import './colorSize.styles.css';
 
-const ColorSize = () => {
+import { connect } from 'react-redux';
+import { addItem } from '../../redux/cart/cart.actions';
+
+const ColorSize = (props) => {
     return (
         <div className='colorSizeContainer'>
-            <button style={{width: '50%', height: '60px'}}>Colour</button>
-            <button style={{width: '50%', height: '60px'}}>Size</button>
-            <button style={{width: '100%', height: '60px', margin: '7px 0px', backgroundColor: '#009280', color: 'white', fontSize: '20px', border: 'none'}}>Order Now</button>
+            <button className='colorSizeSelector'>Colour</button>
+            <button className='colorSizeSelector'>Size</button>
+            <button className='orderNowBtn' onClick={ () => props.addItem(props.product) } >Add To Cart</button>
         </div>
     );
 }
 
-export default ColorSize;
+const mapDispatchToProps = dispatch => ({
+    addItem : item => dispatch(addItem(item))
+});
+
+export default connect(null, mapDispatchToProps)(ColorSize);
