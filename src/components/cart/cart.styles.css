@@ -44,13 +44,15 @@
 .cartItemRemove {
     float: right;
     margin-top: 5px;
+    margin-right: 20px;
 }
 
 .cartItemRemoveOne {
     float: right;
-    margin: 0 5px 10px 5px;
+    margin: 5px 0px 0px 6px;
     height: 30px;
     width: 20px;
+    cursor: pointer;
 }
 
 .cartItemQuantity {
@@ -60,11 +62,11 @@
 
 .cartItemAddOne {
     float: right;
-    margin: 0 0 10px 5px;
+    margin: 5px 0 0px 10px;
     height: 30px;
     width: 20px;
+    cursor: pointer;
 }
-
 
 
 
@@ -83,4 +85,30 @@
     width: fit-content;
     float: left;
     margin-right: 5px;
+}
+
+.Total {
+    margin: 0px 0px 5px 10px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: 1px;
+    color: #073D49;
+    font-size: 25px;
+    text-align: right;
+    margin: 5px 30px;
+    border-top: 1px solid black;
+}
+
+.cartCheckout {
+    background-color: #073D49;
+    color: white;
+    width: 70%;
+    height: 40px;
+    border: none;
+    margin: 40px auto;
+}
+
+.checkoutBtn {
+    text-align: center;
 }

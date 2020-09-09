@@ -2,7 +2,7 @@ import React from 'react';
 import './cartItem.styles.css';
 
 import { connect } from 'react-redux';
-import { updateItem } from '../../../redux/cart/cart.actions';
+import { updateItem, clearItemFromCart, addItem, removeItem } from '../../../redux/cart/cart.actions';
 
 const CartItem = (props) => {
     const x = props.product.color.indexOf(props.product.selectedColor);
@@ -50,10 +50,10 @@ const CartItem = (props) => {
                     <div class="box-2">
                         <div className='cartItemPrice'>{props.product.price}</div>
                         <img src={require('../../../assets/mini-icons/icon_love_filled_updated.png')} alt='Wishlist' style={{float: "right", margin: "5px 10px 10px 10px"}}/>
-                        <button className='cartItemAddOne'>+</button>
+                        <div className='cartItemAddOne' onClick={() => props.addItem(props.product)}>&#10095;</div>
                         <div className='cartItemQuantity'>{props.product.quantity}</div>
-                        <button className='cartItemRemoveOne'>-</button>
-                        <img src={require('../../../assets/mini-icons/icon_delete_outline_updated.png')} alt='Wishlist' className='cartItemRemove' />
+                        <div className='cartItemRemoveOne' onClick={() => props.removeItem(props.product)}>&#10094;</div>
+                        <img src={require('../../../assets/mini-icons/icon_delete_outline_updated.png')} alt='Wishlist' className='cartItemRemove'  onClick={() => props.clearItem(props.product)} />
                     </div>
                 </div>
             </div>
@@ -62,7 +62,10 @@ const CartItem = (props) => {
 
 
 const mapDispatchToProps = dispatch => ({
-    updateItem : item => dispatch(updateItem(item))
+    updateItem : item => dispatch(updateItem(item)),
+    clearItem : item => dispatch(clearItemFromCart(item)),
+    addItem: item => dispatch(addItem(item)),
+    removeItem: item => dispatch(removeItem(item))
 });
 
 

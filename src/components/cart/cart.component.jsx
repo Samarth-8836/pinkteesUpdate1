@@ -6,7 +6,8 @@ import { connect } from 'react-redux';
 
 import { withRouter } from 'react-router';
 
-const Cart = ({ cartItems, history }) => {
+const Cart = ({ cartItems, history, totalCount }) => {
+
     return (
         <div className='cartContainer'>
             <div className='cartTitle'>
@@ -18,7 +19,20 @@ const Cart = ({ cartItems, history }) => {
                 cartItems.map(cartItem => {return <CartItem key={cartItem.id} product={cartItem} />} ) 
             }
             {
-                cartItems[0] ? <button className='cartCheckout' onClick={ () => history.push('/checkout')}>Checkout</button> : <div />
+                cartItems[0] ? 
+                <div>
+                    <div className='Total'>
+                        Total : Rs. {totalCount}
+                    </div>
+                </div>
+
+                :
+
+                <div />
+                    
+            }
+            {
+                cartItems[0] ? <div className='checkoutBtn'><button className='cartCheckout' onClick={ () => alert('CheckOutInitiated') }>CHECKOUT</button></div> : <div />
             }
         </div>
     );
@@ -26,7 +40,8 @@ const Cart = ({ cartItems, history }) => {
 
 
 const mapStsteToProps = ({ cart: { cartItems } }) => ({
-    cartItems
+    cartItems,
+    totalCount: cartItems.reduce((accumalatedQuantity, cartItem) => accumalatedQuantity + (cartItem.quantity * cartItem.price) ,0)
 });
 
 export default withRouter(connect(mapStsteToProps)(Cart));

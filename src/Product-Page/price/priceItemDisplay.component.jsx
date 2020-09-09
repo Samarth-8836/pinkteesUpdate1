@@ -4,7 +4,7 @@ import './priceItemDisplay.styles.css';
 const PriceItemDisplay = (props) => {
     return (
         <div className='priceItemDisplay'>
-            {props.product.price}
+            Rs. {props.product.price}
         </div>
     );
 }
