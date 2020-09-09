@@ -19,6 +19,7 @@ import Cart from './components/cart/cart.component';
 import Wishlist from './components/wishlist/wishlist.component';
 import Mens from './components/mens/mens.component';
 import Womens from './components/womens/womens.component';
+import Checkout from './components/checkout/checkout.component';
 
 
 
@@ -106,6 +107,12 @@ class App extends Component {
     );
   }
 
+  CheckoutName = () => {
+    return(
+      <Checkout />
+    );
+  }
+
   render() {
     return (
       <BrowserRouter>
@@ -118,6 +125,7 @@ class App extends Component {
         <Route path='/WonderWomen' component={this.ProductPage} exact/>
         <Route path='/wishlist' component={this.Wishlist} exact/>
         <Route path='/cart' component={this.Cart} exact/>
+        <Route path='/checkout' component={this.CheckoutName} exact />
         </Switch>
         <SigninSignup />
       </div>

@@ -16,12 +16,6 @@ const CartItem = (props) => {
         props.updateItem(props.product);
     };
 
-    let original = false;
-
-    const show = (val) => {
-        original = val;
-        alert(val);
-    }
 
     return(
         <div class="box-wrapper">
