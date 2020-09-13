@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 
 import { withRouter } from 'react-router';
 
+import StripeCheckoutButton from '../stripe-button/stripeButton.component';
+
 const Cart = ({ cartItems, history, totalCount }) => {
 
     return (
@@ -32,7 +34,7 @@ const Cart = ({ cartItems, history, totalCount }) => {
                     
             }
             {
-                cartItems[0] ? <div className='checkoutBtn'><button className='cartCheckout' onClick={ () => alert('CheckOutInitiated') }>CHECKOUT</button></div> : <div />
+                cartItems[0] ? <div className='checkoutBtn'><StripeCheckoutButton price={totalCount} /></div> : <div />
             }
         </div>
     );
