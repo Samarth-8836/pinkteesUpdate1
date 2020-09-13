@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import fire, { createUserProfileDocument } from './firebase/firebase';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Router, Switch } from 'react-router-dom';
+import history from './history';
 import { connect } from 'react-redux';
 
 
@@ -20,7 +21,8 @@ import Wishlist from './components/wishlist/wishlist.component';
 import Mens from './components/mens/mens.component';
 import Womens from './components/womens/womens.component';
 import Checkout from './components/checkout/checkout.component';
-
+import productListMen from './productlist';
+import productListWomen from './productlistWomen';
 
 
 
@@ -116,19 +118,31 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-      <div>
-        <Header />
-        <Switch>
-        <Route path='/' component={this.home} exact />
-        <Route path='/mens' component={this.mens} exact/>
-        <Route path='/womens' component={this.womens} exact/>
-        <Route path='/WonderWomen' component={this.ProductPage} exact/>
-        <Route path='/wishlist' component={this.Wishlist} exact/>
-        <Route path='/cart' component={this.Cart} exact/>
-        <Route path='/checkout' component={this.CheckoutName} exact />
-        </Switch>
-        <SigninSignup />
-      </div>
+        <Router history={history}>
+          <div>
+            <Header />
+            <Switch>
+            <Route path='/' component={this.home} exact />
+            <Route path='/mens' component={this.mens} exact/>
+            <Route path='/womens' component={this.womens} exact/>
+
+            {
+              productListMen.map((men) => (
+                <Route path={`/mens/${men.id}`} component={this.ProductPage} exact />
+              ))
+            }
+            
+            {
+              productListWomen.map((women) => (
+                <Route path={`/womens/${women.id}`} component={this.ProductPage} exact />
+              ))
+            }
+            
+
+            </Switch>
+            <SigninSignup />
+          </div>
+        </Router>
       </BrowserRouter>
     );
   }
@@ -139,7 +153,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(null, mapDispatchToProps)(App);
-
 
 
 

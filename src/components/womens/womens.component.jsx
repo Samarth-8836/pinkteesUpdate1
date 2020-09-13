@@ -1,67 +1,75 @@
-import React from 'react';
-import './womens.styles.css';
+import React, { Component } from 'react';
+import productListWomen from '../../productlistWomen.js';
+import { Redirect } from 'react-router';
 
-const womens = () => {
-    return(
-        <div>
-            <div className='mensClose' onClick={() => window.history.back()} />
+class Womens extends Component {
 
-            <div className='mensContainer'>
-            
-                <div className='mensTitle'>WOMENS</div>
+    constructor() {
+        super();
 
-                <div className='displayItemContainer'>
+        this.state = {
+            clicked : false,
+            whichClicked : "some"
+        }
+    }
+
+    clicked = (women) => {
+        this.setState({clicked: true});
+        this.setState({whichClicked: women});
+    }
+
+    
+
+    render() {
+        return(
+            <div>
+                <div className={ this.state.clicked ? 'displayItemContainerFalse' : 'mensClose' } onClick={() => window.history.back()} />
+
+                <div className='mensContainer'>
                 
-                    <div className='mensDisplay'>
-                        <div className='mensDisplayImage'>
-                            <img src={'https://firebasestorage.googleapis.com/v0/b/pinktees-a082b.appspot.com/o/WonderWomen.png?alt=media&token=ff7d9ab1-355b-433b-a0c7-566a874c08ac'} alt='Mens Catagory' className='mensDisplayImage' />
-                        </div>
-                        <div className='mensDisplayName'>
-                            Wonder Women
-                        </div>
-                    </div>
+                    <div className={ this.state.clicked ? 'displayItemContainerFalse' : 'mensTitle' }>WOMENS</div>
 
-                    <div className='mensDisplay'>
-                        <div className='mensDisplayImage'>
-                            <img src={'https://firebasestorage.googleapis.com/v0/b/pinktees-a082b.appspot.com/o/WonderWomen.png?alt=media&token=ff7d9ab1-355b-433b-a0c7-566a874c08ac'} alt='Mens Catagory' className='mensDisplayImage' />
-                        </div>
-                        <div className='mensDisplayName'>
-                            Wonder Women
-                        </div>
-                    </div>
+                    <div className={ this.state.clicked ? 'displayItemContainerFalse' : 'displayItemContainer' }>
+                    
+                        
+                        {
+                            productListWomen.map( (women) => {
+                                return(
+                                    <div>
+                                        {
+                                            this.state.clicked ? 
+                                            
+                                                <div />
 
-                    <div className='mensDisplay'>
-                        <div className='mensDisplayImage'>
-                            <img src={'https://firebasestorage.googleapis.com/v0/b/pinktees-a082b.appspot.com/o/WonderWomen.png?alt=media&token=ff7d9ab1-355b-433b-a0c7-566a874c08ac'} alt='Mens Catagory' className='mensDisplayImage' />
-                        </div>
-                        <div className='mensDisplayName'>
-                            Wonder Women
-                        </div>
-                    </div>
+                                            :
+                                                <div className='mensDisplay' onClick={() => this.clicked(women)}>
+                                                    <div className='mensDisplayImage'>
+                                                        <img src={women['imgUrl']} alt='Mens Catagory' className='mensDisplayImage' />
+                                                    </div>
+                                                    <div className='mensDisplayName'>
+                                                        {women['title']}
+                                                    </div>
+                                                </div>
+                                        }
+                                        
+                                    </div>
+                                );
+                            })
+                        }
 
-                    <div className='mensDisplay'>
-                        <div className='mensDisplayImage'>
-                            <img src={'https://firebasestorage.googleapis.com/v0/b/pinktees-a082b.appspot.com/o/WonderWomen.png?alt=media&token=ff7d9ab1-355b-433b-a0c7-566a874c08ac'} alt='Mens Catagory' className='mensDisplayImage' />
-                        </div>
-                        <div className='mensDisplayName'>
-                            Wonder Women
-                        </div>
                     </div>
-
-                    <div className='mensDisplay'>
-                        <div className='mensDisplayImage'>
-                            <img src={'https://firebasestorage.googleapis.com/v0/b/pinktees-a082b.appspot.com/o/WonderWomen.png?alt=media&token=ff7d9ab1-355b-433b-a0c7-566a874c08ac'} alt='Mens Catagory' className='mensDisplayImage' />
-                        </div>
-                        <div className='mensDisplayName'>
-                            Wonder Women
-                        </div>
-                    </div>
-
+                    
+                    {
+                        this.state.clicked ? 
+                            <Redirect to={`/womens/${this.state.whichClicked.id}`} />
+                        :
+                            <div />
+                    }
+                
                 </div>
-            
             </div>
-        </div>
-    );
+        );
+    }
 }
 
-export default womens;
+export default Womens;

@@ -6,16 +6,55 @@ import Description from './description/description.component';
 import CustomerReviews from './customer-reviews/customerReviews.component';
 import MoreLikeThis from './more-like-this/moreLikeThis.component';
 
-const ProductPage = (props) => {
+import productListMen from '../productlist';
+import productListWomen from '../productlistWomen';
+
+const ProductPage = () => {
+
+    function reverseString(str) {
+        var splitString = str.split("");
+     
+        var reverseArray = splitString.reverse();
+     
+        var joinArray = reverseArray.join(""); 
+        
+        return joinArray; 
+    }
+
+    function spliceString(str, index) {
+        var splitString = str.split("");
+        
+        splitString.splice(0, str.length - index);
+
+        var joinArray = splitString.join("");
+
+        return joinArray;
+    }
+
+    let windowURL = String(window.location.href);
+    let windowURLreversed = reverseString(windowURL);
+    let index = windowURLreversed.indexOf('/');
+    windowURL = spliceString(windowURL, index);
+
+    let productList = productListMen.concat(productListWomen);
+
+    let productMain =  productList.filter((item) => {
+        if(windowURL === String(item.id)) {
+            return true;
+        } else {
+            return false;
+        }
+    });
+
     return(
         <div>
-            <ProductDisplay product={props.product} />
-            <PriceItemDisplay product={props.product} />
-            <ColorSize product={props.product} />    
-            <Description product={props.product} />
+            <ProductDisplay product={productMain[0]} />
+            <PriceItemDisplay product={productMain[0]} />
+            <ColorSize product={productMain[0]} />    
+            <Description product={productMain[0]} />
             <CustomerReviews />
             <MoreLikeThis />
-            </div>
+        </div>
     );
 }
 

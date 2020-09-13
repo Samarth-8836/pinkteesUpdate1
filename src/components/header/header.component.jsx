@@ -23,7 +23,7 @@ class Header extends Component {
     }
     wishlistClickHandler = () => {
         this.setState({isSwitchOnWishlist: !(this.state.isSwitchOnWishlist)});
-        window.history.back(); 
+        window.history.back();
     }
 
     render() {
@@ -72,7 +72,7 @@ class Header extends Component {
                                                 this.props.user ? 
                                                     <Link className='menuItem' to='/' onClick={() => {fire.auth().signOut();this.setState({isSwitchOn: false})}}>SIGN OUT</Link>
                                                 :
-                                                    <Link className='menuItem' to='/signin' onClick={() => this.setState({isSwitchOn: false})} >SIGN IN</Link>
+                                                    <Link className='menuItem' to='/signin' onClick={() => this.setState({isSwitchOn: false, isSwitchOnWishlist: false, isSwitchOnCart: false})} >SIGN IN</Link>
                                             }
                                         </div>
                                     </div>

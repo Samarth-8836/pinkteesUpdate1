@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './mens.styles.css';
 import productListMen from '../../productlist.js';
-import ProductPage from '../../Product-Page/product-page.component';
+import { Redirect } from 'react-router';
+
 
 class mens extends Component {
 
@@ -43,7 +44,6 @@ class mens extends Component {
                                                 <div />
 
                                             :
-                            
                                                 <div className='mensDisplay' onClick={() => this.clicked(men)}>
                                                     <div className='mensDisplayImage'>
                                                         <img src={men['imgUrl']} alt='Mens Catagory' className='mensDisplayImage' />
@@ -63,7 +63,7 @@ class mens extends Component {
                     
                     {
                         this.state.clicked ? 
-                            <ProductPage product={this.state.whichClicked} />
+                            <Redirect to={`/mens/${this.state.whichClicked.id}`} />
                         :
                             <div />
                     }
