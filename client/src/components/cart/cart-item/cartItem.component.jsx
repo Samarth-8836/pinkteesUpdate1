@@ -18,19 +18,19 @@ const CartItem = (props) => {
 
 
     return(
-        <div class="box-wrapper">
-                <div class="box-tall">
+        <div className="box-wrapper">
+                <div className="box-tall">
                     <div className='cartItemImage' style={{backgroundImage: `url(${props.product.imgUrl[x]})`}} />
                 </div>
-                <div class="box-left">
-                    <div class="box-1">
+                <div className="box-left">
+                    <div className="box-1">
                         <div className='cartItemTitle'>{props.product.title}</div>
                         <div className={'cartItemChangeSize'}>
                             <select name='size' className={'cartItemChangeSizeSelect'} id='size' onChange={handleChangeSize}>
                                 {
                                     props.product.size.map( (size) => {
                                         return (
-                                            <option value={size} className='XYZ' selected={ size===props.product.selectedSize }>{size}</option>
+                                            <option value={size} className='XYZ' selected={ size===props.product.selectedSize } key={size} >{size}</option>
                                         );
                                     })
                                 }
@@ -47,7 +47,7 @@ const CartItem = (props) => {
                         </select>
 
                     </div>
-                    <div class="box-2">
+                    <div className="box-2">
                         <div className='cartItemPrice'>{props.product.price}</div>
                         <img src={require('../../../assets/mini-icons/icon_love_filled_updated.png')} alt='Wishlist' style={{float: "right", margin: "5px 10px 10px 10px"}}/>
                         <div className='cartItemAddOne' onClick={() => props.addItem(props.product)}>&#10095;</div>

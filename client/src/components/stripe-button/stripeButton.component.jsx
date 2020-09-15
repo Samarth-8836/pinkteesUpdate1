@@ -8,38 +8,40 @@ const StripeCheckoutButton = ({ price }) => {
 
     const onToken = token => {
         axios({
-            url: 'payment',
-            method: 'post',
-            data: {
-                amount: priceForStripe,
-                token: token
-            }
-        }).then(response => {
-            alert('Payment Successful');
-        }).catch(err => {
-            console.log('Payment error: ', err);
-            alert('There was an issue with your payment. Please make sure you use a valid credit card');
+        url: 'payment',
+        method: 'post', 
+        data: {
+            amount: priceForStripe,
+            token: token
+        }
+        })
+        .then(response => {
+            alert('succesful payment');
+        })
+        .catch(error => {
+            console.log('Payment Error: ', JSON.parse(error));
+            alert(
+            'There was an issue with your payment! Please make sure you use the provided credit card.'
+            );
         });
     };
 
-    return (
-        <StripeCheckout 
-            label='Pay Now'
-            name='PinkTees'
-            billingAddress
-            shippingAddress
-            image='../../assets/Logo.png'
-            description={`Your total is Rs.${price}`}
-            amount={priceForStripe}
-            panelLabel='Pay Now'
-            token={onToken}
-            stripeKey={publishableKey}
-            currency="INR"
-            ComponentClass="div"
-        >
-            <button className='cartCheckout' onClick={ () => alert('Do not press back button for smooth experience') }>CHECKOUT</button>
-        </StripeCheckout>
-    );
+  return (
+    <StripeCheckout
+      label='Pay Now'
+      name='CRWN Clothing Ltd.'
+      billingAddress
+      shippingAddress
+      description={`Your total is Rs.${price}`}
+      amount={priceForStripe}
+      panelLabel='Pay Now'
+      token={onToken}
+      currency='INR'
+      stripeKey={publishableKey}
+    >
+        <button className='cartCheckout' onClick={ () => alert('Do not press back button for smooth experience') }>CHECKOUT</button>
+    </StripeCheckout>
+  );
 }
 
 export default StripeCheckoutButton;
