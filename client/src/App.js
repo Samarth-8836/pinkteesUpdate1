@@ -25,6 +25,7 @@ import productListMen from './productlist';
 import productListWomen from './productlistWomen';
 
 
+import Diy from './components/diy/diy.component';
 
 class App extends Component {
 
@@ -125,6 +126,7 @@ class App extends Component {
             <Route path='/' component={this.home} exact />
             <Route path='/mens' component={this.mens} exact/>
             <Route path='/womens' component={this.womens} exact/>
+            <Route path='/diy' component={Diy} exact/>
 
             {
               productListMen.map((men) => (
