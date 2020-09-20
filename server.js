@@ -3,6 +3,8 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
 
+const nodemailer = require('nodemailer');
+
 if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
@@ -40,6 +42,41 @@ app.post('/payment', (req, res) => {
     if (stripeErr) {
       res.status(500).send({ error: stripeErr });
     } else {
+
+      var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'mailerpinktees@gmail.com',
+          pass: 'PinkTees@123'
+        }
+      });
+
+      var fullText = (ar) => {
+        var str = '';
+        for (var i = 0, len = ar.length; i < len; i++) {
+          str += (i+1) + ". " + ar[i].title + " \n\t " + "Quantity: " + ar[i].quantity + ' \n\t' + " Color: " + ar[i].selectedColor + ' \n\t' + " Size: " + ar[i].selectedSize + "\n";
+        }
+        return str;
+      }
+
+      var mailOptions = {
+        from: 'mailerpinktees@gmail.com',
+        to: 'mailerpinktees@gmail.com',
+        subject: `Order - ${req.body.token.email}`,
+        text: `${fullText(req.body.cartItems)} Address: ${req.body.token.card.address_line1}, ${req.body.token.card.address_city}, ${req.body.token.card.address_zip}, ${req.body.token.card.address_country}`
+      };
+
+      transporter.sendMail(mailOptions, function(err,info){
+        if(err) {
+          console.log(err);
+        }
+        else {
+          console.log('mail sent: ' + info.response);
+        }
+      });
+
+
+
       res.status(200).send({ success: stripeRes });
     }
   });

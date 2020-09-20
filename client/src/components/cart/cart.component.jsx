@@ -34,7 +34,7 @@ const Cart = ({ cartItems, history, totalCount }) => {
                     
             }
             {
-                cartItems[0] ? <div className='checkoutBtn'><StripeCheckoutButton price={totalCount} /></div> : <div />
+                cartItems[0] ? <div className='checkoutBtn'><StripeCheckoutButton cartItems={cartItems} price={totalCount} /></div> : <div />
             }
         </div>
     );
