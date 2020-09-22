@@ -3,6 +3,7 @@ import fire, { createUserProfileDocument } from './firebase/firebase';
 import { BrowserRouter, Route, Router, Switch } from 'react-router-dom';
 import history from './history';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 
 import { setCurrentUser } from './redux/user/user.actions';
@@ -84,7 +85,9 @@ class App extends Component {
       <div>
         <Banner />
         <MainCatagory />
-        <CustomBanner />
+        <Link to='/diy'>
+          <CustomBanner />
+        </Link>
         <SellingHot />
       </div>
     );

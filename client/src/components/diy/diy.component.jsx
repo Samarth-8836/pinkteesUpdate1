@@ -63,7 +63,7 @@ class Diy extends Component {
             
                 var dataURL = canvas.toDataURL("image/png");
             
-                return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+                return dataURL.replace(/^data:image\/(png|jpg|jpeg|JPEG|JPG|PNG);base64,/, "");
             }
 
             var imgData = getBase64Image(img);
@@ -99,15 +99,17 @@ class Diy extends Component {
 
     render(){
         return(
-            <div id='newDivId'>
+            <div>
                 <input type='file' className='image-upload' accept='image/*' onChange={this.imageHandeler} />
-                <div className='background-plain-tshirt' style={{backgroundImage: `url(${background})`, height: '500px', backgroundSize: 'cover'}}>
-                    <this.DraggableCard><img src={this.state.image0} alt='your logo'/></this.DraggableCard>
-                </div>   
-                <button onClick={this.saveImage} className='saveButton'>Save Now</button>  
+                <div id='newDivId'>
+                    <div className='background-plain-tshirt' style={{backgroundImage: `url(${background})`, height: '500px', backgroundSize: 'cover'}}>
+                        <this.DraggableCard><img src={this.state.image0} alt='your logo'/></this.DraggableCard>
+                    </div>   
+                </div>
+                <button onClick={this.saveImage} className='saveButton'>Save Now</button>
             </div>
         );
     }
 }
 
-export default Diy
+export default Diy;
