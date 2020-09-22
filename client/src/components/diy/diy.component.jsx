@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { useRef } from "react";
 import useDraggable from "./useDraggable";
+import domtoimage from 'dom-to-image';
+import axios from 'axios';
+import background from '../../assets/Mens/mens_blue.png';
+
+
 
 import "./diy.styles.css";
 
@@ -35,15 +40,71 @@ class Diy extends Component {
           </div>
         );
     };
+
+    retrysaveImage = () => {
+        this.saveImage();
+    }
       
+    saveImage = () => {
+        var node = document.getElementById('newDivId');
+
+        domtoimage.toPng(node)
+        .then(function (dataUrl) {
+            var img = new Image();
+            img.src = dataUrl;
+
+            function getBase64Image(img) {
+                var canvas = document.createElement("canvas");
+                canvas.width = img.width;
+                canvas.height = img.height;
+            
+                var ctx = canvas.getContext("2d");
+                ctx.drawImage(img, 0, 0);
+            
+                var dataURL = canvas.toDataURL("image/png");
+            
+                return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+            }
+
+            var imgData = getBase64Image(img);
+            console.log(imgData);
+            if(imgData.length < 100) {
+                console.log('retrying now');
+                throw('Error encoding the image. Try again');
+            }
+
+
+            axios({
+                url: 'imageUpload',
+                method: 'post', 
+                data: {
+                    imageUrl: "data:image/png;base64," + imgData
+                }
+            }).then(response => {
+                alert('succesful');
+    
+            })
+            .catch(error => {
+                alert(
+                'There was an issue. Try again'
+                );
+            });
+
+        })
+        .catch(function (error) {
+            alert('Oops! ' + error);
+            console.error('Oops!', error);
+        });
+    };
 
     render(){
         return(
-            <div >
+            <div id='newDivId'>
                 <input type='file' className='image-upload' accept='image/*' onChange={this.imageHandeler} />
-                <div className='background-plain-tshirt' style={{backgroundImage: 'url("https://firebasestorage.googleapis.com/v0/b/pinktees-a082b.appspot.com/o/WonderWomen.png?alt=media&token=ff7d9ab1-355b-433b-a0c7-566a874c08ac")', height: '500px', backgroundSize: 'cover'}}>
-                    <this.DraggableCard><img src={this.state.image0} /></this.DraggableCard>
-                </div>
+                <div className='background-plain-tshirt' style={{backgroundImage: `url(${background})`, height: '500px', backgroundSize: 'cover'}}>
+                    <this.DraggableCard><img src={this.state.image0} alt='your logo'/></this.DraggableCard>
+                </div>   
+                <button onClick={this.saveImage} className='saveButton'>Save Now</button>  
             </div>
         );
     }

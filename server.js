@@ -12,8 +12,11 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(bodyParser.json({limit: '100mb', extended: true}))
+app.use(bodyParser.urlencoded({limit: '100mb', extended: true}))
 
 app.use(cors());
 
@@ -29,6 +32,43 @@ app.listen(port, error => {
   if (error) throw error;
   console.log('Server running on port ' + port);
 });
+
+app.post('/imageUpload', (req, res) => {
+  if(req.body.imageUrl.length < 100){
+    res.error('Failed. Try again');
+  } else {
+
+
+    var transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: 'mailerpinktees@gmail.com',
+        pass: 'PinkTees@123'
+      }
+    });
+
+    var mailOptions = {
+      from: 'mailerpinktees@gmail.com',
+      to: 'mailerpinktees@gmail.com',
+      subject: `Order - custom`,
+      text: `${req.body.imageUrl}`
+    };
+
+    transporter.sendMail(mailOptions, function(err,info){
+      if(err) {
+        console.log(err);
+      }
+      else {
+        console.log('mail sent: ' + info.response);
+      }
+    });
+
+
+
+    res.send('Success');
+  }
+});
+
 
 app.post('/payment', (req, res) => {
   const body = {

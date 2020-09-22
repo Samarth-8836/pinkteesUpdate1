@@ -116,6 +116,14 @@ class App extends Component {
     );
   }
 
+  diy = () => {
+    return(
+      <div>
+        <Diy />
+      </div>
+    );
+  }
+
   render() {
     return (
       <BrowserRouter>
@@ -126,7 +134,7 @@ class App extends Component {
             <Route path='/' component={this.home} exact />
             <Route path='/mens' component={this.mens} exact/>
             <Route path='/womens' component={this.womens} exact/>
-            <Route path='/diy' component={Diy} exact/>
+            <Route path='/diy' component={this.diy} exact/>
 
             {
               productListMen.map((men) => (
