@@ -85,9 +85,7 @@ class App extends Component {
       <div>
         <Banner />
         <MainCatagory />
-        <Link to='/diy'>
           <CustomBanner />
-        </Link>
         <SellingHot />
       </div>
     );
