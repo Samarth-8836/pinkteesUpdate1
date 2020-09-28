@@ -48,7 +48,7 @@ const CartItem = (props) => {
 
                     </div>
                     <div className="box-2">
-                        <div className='cartItemPrice'>{props.product.price}</div>
+                        <div className='cartItemPrice'> &#8377; {props.product.price}</div>
                         <img src={require('../../../assets/mini-icons/icon_love_filled_updated.png')} alt='Wishlist' style={{float: "right", margin: "5px 10px 10px 10px"}}/>
                         <div className='cartItemAddOne' onClick={() => props.addItem(props.product)}>&#10095;</div>
                         <div className='cartItemQuantity'>{props.product.quantity}</div>

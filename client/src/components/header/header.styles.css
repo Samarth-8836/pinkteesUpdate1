@@ -32,17 +32,19 @@
 }
 
 .wishlistHeader {
-    background-image: url(../../assets/mini-icons/Icon_love_updated.png);
+    background-image: url(../../assets/mini-icons/Icon_love_outline.svg);
     background-size: cover;
 }
 
 .cartHeader {
-    background-image: url(../../assets/mini-icons/Icon_cart_updated.png);
+    background-image: url(../../assets/mini-icons/Cart.svg);
+    background-size: cover;
 }
 
 .menuHeader {
-    background-image: url(../../assets/mini-icons/Icon_menu_updated.png);
+    background-image: url(../../assets/mini-icons/Icon_menu_outline.svg);
     margin-right: 15px;
+    background-size: cover;
 }
 
 
