@@ -10,6 +10,11 @@ const userReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 currentUser: action.payload
             }
+        case UserActionTypes.GET_CURRENT_USER:
+            return {
+                ...state,
+                currentUserLoggedIn: action.payload
+            }
 
         default:
             return state;

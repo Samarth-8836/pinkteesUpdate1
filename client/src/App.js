@@ -24,6 +24,7 @@ import Womens from './components/womens/womens.component';
 import Checkout from './components/checkout/checkout.component';
 import productListMen from './productlist';
 import productListWomen from './productlistWomen';
+import ContactUs from './components/contact-us/contactus.component';
 
 
 import Diy from './components/diy/diy.component';
@@ -76,7 +77,11 @@ class App extends Component {
       } else {
         this.props.setCurrentUser(userAuth);
       }
-      localStorage.setItem("user",userAuth);
+      localStorage.setItem("user", userAuth);
+      localStorage.setItem('userName', 'null');
+      localStorage.setItem('userMobile', 'null');
+      localStorage.setItem('userEmail', 'null');
+      localStorage.setItem('userAddress', 'null');
     })
   }
 
@@ -136,6 +141,7 @@ class App extends Component {
             <Route path='/mens' component={this.mens} exact/>
             <Route path='/womens' component={this.womens} exact/>
             <Route path='/diy' component={this.diy} exact/>
+            <Route path='/contact' component={ContactUs} exact />
 
             {
               productListMen.map((men) => (
@@ -148,7 +154,9 @@ class App extends Component {
                 <Route path={`/womens/${women.id}`} component={this.ProductPage} exact />
               ))
             }
-            
+            <Route path='/cart' component={Cart} exact />
+            <Route path='/wishlist' component={Wishlist} exact />
+            <Route path='/user' component={UserDetails} exact />
 
             </Switch>
             <SigninSignup />

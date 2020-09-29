@@ -7,12 +7,12 @@ const Wishlist = () => {
             <div className='wishlistTitle'>
                 Wishlist
             </div>
-            <div class="box-wrapper">
-                <div class="box-tall">
+            <div className="box-wrapper">
+                <div className="box-tall">
                     <div className='wishlistItemImage' />
                 </div>
-                <div class="box-left">
-                    <div class="box-1">
+                <div className="box-left">
+                    <div className="box-1">
                         <div className='wishlistItemTitle'>White T-Shirt</div>
                         <div className='wishlistItemSize'>XL</div>
                     </div>

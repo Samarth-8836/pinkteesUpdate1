@@ -3,6 +3,7 @@ import './banner.styles.css';
 import Slider from 'react-slick';
 import photo1 from '../../assets/Banners/banner1.png';
 import photo2 from '../../assets/Banners/custom1.png';
+import photo3 from '../../assets/Banners/make-your-own-vwhite.jpg';
 
 const Banner = () => {
 
@@ -17,7 +18,7 @@ const Banner = () => {
         },
         {
             name: 'photo3',
-            url: photo1
+            url: photo3
         }
     ]
 
@@ -39,7 +40,7 @@ const Banner = () => {
             { photos.map((photo) => {
                 return (
                     <div>
-                        <img width="100%" src={photo.url} alt='bannerones'/>
+                        <img width="100%" src={photo.url} alt='bannerones' height='230px'/>
                     </div>
                 );
             })}

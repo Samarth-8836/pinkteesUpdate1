@@ -52,10 +52,14 @@ const ProductPage = () => {
             <PriceItemDisplay product={productMain[0]} />
             <ColorSize product={productMain[0]} />    
             <Description product={productMain[0]} />
-            <CustomerReviews />
+            
             <MoreLikeThis />
         </div>
     );
 }
 
 export default ProductPage;
+
+
+
+// <CustomerReviews /> is left

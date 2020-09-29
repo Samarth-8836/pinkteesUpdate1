@@ -11,7 +11,7 @@ const CustomBanner = () => {
             <Link to='/diy' className='linkClass'>
                 <img src={require('../../assets/Banners/custom1.png')} alt='CustomBanner' className='customBannerImage' />
                 <div className='customBannerDescription'>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sodales, elit ac euismod facilisis, nibh felis mattis dui, non auctor. 
+                    Bring your own design! Get your design, align them the way you want and upload them, we will get back to you with your design.
                 </div>
             </Link>
         </div>

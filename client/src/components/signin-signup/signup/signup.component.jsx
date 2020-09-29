@@ -10,6 +10,7 @@ class Signup extends Component {
         this.state = {
             displayName: '',
             email: '',
+            phone: '',
             password: '',
             confirmPassword: ''
         }
@@ -18,7 +19,7 @@ class Signup extends Component {
     signup = async event => {
         event.preventDefault();
 
-        const {displayName, email, password, confirmPassword} = this.state;
+        const {displayName, email, phone, password, confirmPassword} = this.state;
 
         if(password !== confirmPassword) {
             alert("Password don't match");
@@ -28,11 +29,12 @@ class Signup extends Component {
         try {
             const { user } = await fire.auth().createUserWithEmailAndPassword(email, password);
 
-            await createUserProfileDocument(user, { displayName });
+            await createUserProfileDocument(user, { displayName, phone, password });
 
             this.setState({
                 displayName: '',
                 email: '',
+                phone: '',
                 password: '',
                 confirmPassword: ''
             });
@@ -56,6 +58,7 @@ class Signup extends Component {
                 <form>
                     <input type='text' id='fullWidth' placeholder='Name' name='displayName' value={this.state.displayName} onChange={this.handleChange} />
                     <input type='mail' id='fullWidth' placeholder='Mail' name='email' value={this.state.email} onChange={this.handleChange} />
+                    <input type='phone' id='fullWidth' placeholder='Phone Number' name='phone' value={this.state.phone} onChange={this.handleChange} />
                     <input type='password' id='fullWidth' placeholder='Password' name='password' value={this.state.password} onChange={this.handleChange} />
                     <input type='password' id='fullWidth' placeholder='Confirm Password' name='confirmPassword' value={this.state.confirmPassword} onChange={this.handleChange} />
                     <button type='submit' id='fullWidthButton' onClick={this.signup}>Sign Up</button>

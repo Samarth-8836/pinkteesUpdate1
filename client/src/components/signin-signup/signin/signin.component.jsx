@@ -52,7 +52,6 @@ class Signin extends Component {
                     <input type='password' id='fullWidth' placeholder='Password' onChange={this.handleChange} name='password' value={this.state.password} />
                     <button type='submit' id='fullWidthButton' onClick={this.login} >Sign In</button>
                     <Link to='/signup'><button type='submit' id='fullWidthButton'>Sign Up Instaid</button></Link> 
-                    <button type='submit' id='fullWidthButton' onClick={this.signout}>Sign Out</button>
                 </form>
             </div>
         );

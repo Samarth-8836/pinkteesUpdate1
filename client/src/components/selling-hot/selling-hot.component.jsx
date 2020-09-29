@@ -6,7 +6,7 @@ const SellingHot = () => {
     return(
         <div>
             <div className='sellingHotTitle'>
-                Selling Hot
+                Our Top Designs
             </div>
             <Item />
         </div>

@@ -16,9 +16,6 @@ const MainCatagory = () => {
                             <div className='mainCatagoryDisplayTitle'>
                                 Mens
                             </div>
-                            <div className='mainCatagoryDisplayDiscription'>
-                                Lorem Ipsum
-                            </div>
                         </Link>
                     </div>
                 
@@ -28,9 +25,6 @@ const MainCatagory = () => {
                             <img src={'https://firebasestorage.googleapis.com/v0/b/pinktees-a082b.appspot.com/o/womens_catagory.png?alt=media&token=987e8f37-c1dc-437a-bc1b-a7b8c45242e7'} alt='Mens Catagory' className='mainCatagoryDisplayImage' />
                             <div className='mainCatagoryDisplayTitle'>
                                 Womens
-                            </div>
-                            <div className='mainCatagoryDisplayDiscription'>
-                                Lorem Ipsum
                             </div>
                         </Link>
                     </div>
