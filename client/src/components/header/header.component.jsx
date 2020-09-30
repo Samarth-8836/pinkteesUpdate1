@@ -57,28 +57,10 @@ class Header extends Component {
             <Link to='/'><div className='logoComponent' onClick={() => this.setState({isSwitchOnWishlist: false, isSwitchOnCart: false, isSwitchOn: false}) }></div></Link>
                 <ul className='mainHeaderItems'>
                     <Link to='/wishlist'><li className='mainHeaderMenuComponent wishlistHeader' onClick={() => this.setState({isSwitchOnWishlist: true, isSwitchOnCart: false}) }></li></Link>
-                    {   this.state.isSwitchOnWishlist ? 
-                        <div>
-                            <div className='cartClose' onClick={this.wishlistClickHandler} />
-                            <div className={`wishlistContainer`}>
-                                <Wishlist />
-                            </div>
-                        </div>
-                    : 
-                        <div></div>
-                    }
+                    
                     
                     <Link to='/cart'><li className='mainHeaderMenuComponent cartHeader' onClick={() => this.setState({isSwitchOnCart: true, isSwitchOnWishlist: false}) }></li></Link>
-                    {   this.state.isSwitchOnCart ? 
-                        <div>
-                            <div className='cartClose' onClick={this.cartClickHandler} />
-                            <div className={`cartContainer`}>
-                                <Cart />
-                            </div>
-                        </div>
-                    : 
-                        <div></div>
-                    }
+                    
 
                     <li className='mainHeaderMenuComponent menuHeader' onClick={() => this.setState({isSwitchOn: true}) }></li>
                         {   this.state.isSwitchOn ? 

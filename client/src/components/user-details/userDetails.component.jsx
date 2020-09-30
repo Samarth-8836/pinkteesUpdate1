@@ -39,7 +39,7 @@ class UserDetails extends Component {
                 let name = doc.data().displayName;
                 let mobile = doc.data().phone;
                 let emailA = doc.data().email;
-                let address = doc.data().userAddress;
+                let address = doc.data().address;
                 if(localStorage.getItem("user") === 'null') {
                     localStorage.setItem("userName", 'null');
                     localStorage.setItem('userMobile', 'null');
@@ -241,11 +241,13 @@ class UserDetails extends Component {
                     {
                         this.state.nameChange ? 
                         <React.Fragment>
-                            <form>
-                                <input type='text' name='name' placeholder='New Username' onChange={this.handleChange} name='name' value={this.state.name}/>
-                                <input type='password' name='password' placeholder='Password' onChange={this.handleChange} name='password' value={this.state.password} /><br />
-                                <button type='submit' onClick={this.updateUserNameDetails} >Update</button>
+                        <span className='userDetailsUserTitle'>Name</span>
+                            <form className='textCenter'>
+                                <input type='text' name='name' placeholder='New Username' onChange={this.handleChange} name='name' value={this.state.name} className='changeInput'/>
+                                <input type='password' name='password' placeholder='Password' onChange={this.handleChange} name='password' value={this.state.password} className='changeInput' /><br />
+                                <button type='submit' onClick={this.updateUserNameDetails} className='changeButton' >Update</button>
                             </form>
+                        <div className='editIcon' onClick={() => {this.setState({nameChange: false})} }/>
                         </React.Fragment>
                         :
                         <React.Fragment><span className='userDetailsUserTitle'>Name</span><span className='userDetailsUserTitleActual'>{localStorage.getItem("userName") === 'null' ? '' : localStorage.getItem("userName")}</span><div className='editIcon' onClick={() => {this.setState({nameChange: true})} }/></React.Fragment>
@@ -256,11 +258,13 @@ class UserDetails extends Component {
                     {
                         this.state.phoneChange ? 
                         <React.Fragment>
-                            <form>
-                                <input type='text' name='phone' placeholder='New Phone Number' onChange={this.handleChange} value={this.state.phone}/>
-                                <input type='password' name='password' placeholder='Password' onChange={this.handleChange} name='password' value={this.state.password} /><br />
-                                <button type='submit' onClick={this.updateUserPhoneDetails} >Update</button>
+                        <span className='userDetailsUserTitle'>Phone</span>
+                            <form className='textCenter'>
+                                <input type='text' name='phone' placeholder='New Phone Number' onChange={this.handleChange} value={this.state.phone} className='changeInput'/>
+                                <input type='password' name='password' placeholder='Password' onChange={this.handleChange} name='password' value={this.state.password} className='changeInput' /><br />
+                                <button type='submit' onClick={this.updateUserPhoneDetails} className='changeButton' >Update</button>
                             </form>
+                        <div className='editIcon' onClick={() => {this.setState({phoneChange: false})} }/>
                         </React.Fragment>
                         :
                         <React.Fragment><span className='userDetailsUserTitle'>Phone</span><span className='userDetailsUserTitleActual'>{localStorage.getItem("userMobile") === 'null' ? '' : localStorage.getItem("userMobile")}</span><div className='editIcon' onClick={() => {this.setState({phoneChange: true})} }/></React.Fragment>
@@ -270,11 +274,13 @@ class UserDetails extends Component {
                     {
                         this.state.emailChange ? 
                         <React.Fragment>
-                            <form>
-                                <input type='text' name='email' placeholder='New Email Address' onChange={this.handleChange} value={this.state.email}/>
-                                <input type='password' name='password' placeholder='Password' onChange={this.handleChange} name='password' value={this.state.password} /><br />
-                                <button type='submit' onClick={this.updateUserEmailDetails} >Update</button>
+                        <span className='userDetailsUserTitle'>Email</span>
+                            <form className='textCenter'>
+                                <input type='text' name='email' placeholder='New Email Address' onChange={this.handleChange} value={this.state.email} className='changeInput'/>
+                                <input type='password' name='password' placeholder='Password' onChange={this.handleChange} name='password' value={this.state.password} className='changeInput' /><br />
+                                <button type='submit' onClick={this.updateUserEmailDetails} className='changeButton' >Update</button>
                             </form>
+                        <div className='editIcon' onClick={() => {this.setState({emailChange: false})} }/>
                         </React.Fragment>
                         :
                         <React.Fragment><span className='userDetailsUserTitle'>Email</span><span className='userDetailsUserTitleActual'>{localStorage.getItem("userEmail") === 'null' ? '' : localStorage.getItem("userEmail")}</span><div className='editIcon' onClick={() => {this.setState({emailChange: true})} }/></React.Fragment>
@@ -284,11 +290,13 @@ class UserDetails extends Component {
                     {
                         this.state.passwordChange ? 
                         <React.Fragment>
-                            <form>
-                                <input type='text' name='newpassword' placeholder='New Password' onChange={this.handleChange} value={this.state.newpassword}/>
-                                <input type='password' name='password' placeholder='Password' onChange={this.handleChange} name='password' value={this.state.password} /><br />
-                                <button type='submit' onClick={this.updateUserPasswordDetails} >Update</button>
+                        <span className='userDetailsUserTitle'>Password</span>
+                            <form className='textCenter'>
+                                <input type='text' name='newpassword' placeholder='New Password' onChange={this.handleChange} value={this.state.newpassword} className='changeInput'/>
+                                <input type='password' name='password' placeholder='Password' onChange={this.handleChange} name='password' value={this.state.password} className='changeInput' /><br />
+                                <button type='submit' onClick={this.updateUserPasswordDetails} className='changeButton' >Update</button>
                             </form>
+                        <div className='editIcon' onClick={() => {this.setState({passwordChange: false})} }/>
                         </React.Fragment>
                         :
                         <React.Fragment><span className='userDetailsUserTitle'>Password</span><span className='userDetailsUserTitleActual'>******</span><div className='editIcon' onClick={() => {this.setState({passwordChange: true})} }/></React.Fragment>
@@ -298,14 +306,16 @@ class UserDetails extends Component {
                     {
                         this.state.addressChange ? 
                         <React.Fragment>
-                            <form>
-                                <input type='text' name='address' placeholder='New Address' onChange={this.handleChange} value={this.state.address}/>
-                                <input type='password' name='password' placeholder='Password' onChange={this.handleChange} name='password' value={this.state.password} /><br />
-                                <button type='submit' onClick={this.updateUserAddressDetails} >Update</button>
+                        <span className='userDetailsUserTitle'>Address</span>
+                            <form className='textCenter'>
+                                <input type='text' name='address' placeholder='New Address' onChange={this.handleChange} value={this.state.address} className='changeInput'/>
+                                <input type='password' name='password' placeholder='Password' onChange={this.handleChange} name='password' value={this.state.password} className='changeInput'/><br />
+                                <button type='submit' onClick={this.updateUserAddressDetails} className='changeButton'>Update</button>
                             </form>
+                        <div className='editIcon' onClick={() => {this.setState({addressChange: false})} }/>
                         </React.Fragment>
                         :
-                        <React.Fragment><span className='userDetailsUserTitle'>Address</span><span className='userDetailsUserTitleActual'>{localStorage.getItem("userAddress") === 'null'||'undefined' ? 'Add Now' : localStorage.getItem("userAddress")}</span><div className='editIcon' onClick={() => {this.setState({addressChange: true})} }/></React.Fragment>
+                        <React.Fragment><span className='userDetailsUserTitle'>Address</span><span className='userDetailsUserTitleActual'>{localStorage.getItem("userAddress") === 'null' ? 'Add Now' : localStorage.getItem("userAddress")}</span><div className='editIcon' onClick={() => {this.setState({addressChange: true})} }/></React.Fragment>
                     }
                 </div>
             </div>
@@ -314,19 +324,3 @@ class UserDetails extends Component {
 }
 
 export default UserDetails;
-
-
-
-
-// <div className='userDetailsUserInfoContainer'>
-//                     <span className='userDetailsUserTitle'>Phone</span><span className='userDetailsUserTitleActual'>{localStorage.getItem("userMobile") === 'null' ? 'Add Now' : localStorage.getItem("userMobile")}</span><div className='editIcon' />
-//                 </div>
-//                 <div className='userDetailsUserInfoContainer'>
-//                     <span className='userDetailsUserTitle'>Email</span><span className='userDetailsUserTitleActual'>{localStorage.getItem("userEmail") === 'null' ? '' : localStorage.getItem("userEmail")}</span><div className='editIcon' />
-//                 </div>
-//                 <div className='userDetailsUserInfoContainer'>
-//                     <span className='userDetailsUserTitle'>Password</span><span className='userDetailsUserTitleActual'>******</span><div className='editIcon' />
-//                 </div>
-//                 <div className='userDetailsUserInfoContainer'>
-//                     <span className='userDetailsUserTitle'>Address</span><span className='userDetailsUserTitleActual'>{localStorage.getItem("userAddress") === 'null'||'undefined' ? 'Add Now' : localStorage.getItem("userAddress")}</span><div className='editIcon' />
-//                 </div>

@@ -3,23 +3,30 @@ import './colorSize.styles.css';
 
 import { connect } from 'react-redux';
 import { addItem } from '../../redux/cart/cart.actions';
+import { addItemSize, addItemColor } from '../../redux/size-and-color/sizecolor.actions'; 
 
 const ColorSize = (props) => {
 
     var colorChanged = false;
     var sizeChanged = false;
     
-    
     const handleChangeColor = (event) => {
-        console.log(event.target.value);
         colorChanged = true;
         Object.assign(props.product, {selectedColor: event.target.value});
+        props.addItemColor(event.target.value);
     }
 
     const handleChangeSize = (event) => {
-        console.log(event.target.value);
         sizeChanged = true;
         Object.assign(props.product, {selectedSize: event.target.value});
+        props.addItemSize(event.target.value);
+    }
+    
+    if(!(sizeChanged)) {
+        props.addItemSize(props.product.size[0]);
+    }
+    if(!(colorChanged)) {
+        props.addItemColor(props.product.color[0]);
     }
 
     const handleOrderBtn = () => {
@@ -58,7 +65,9 @@ const ColorSize = (props) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-    addItem : item => dispatch(addItem(item))
+    addItem : item => dispatch(addItem(item)),
+    addItemSize : item => dispatch(addItemSize(item)),
+    addItemColor : item => dispatch(addItemColor(item))
 });
 
 export default connect(null, mapDispatchToProps)(ColorSize);

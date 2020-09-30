@@ -1,10 +1,10 @@
 import React from 'react';
-import './cartItem.styles.css';
 
 import { connect } from 'react-redux';
-import { updateItem, clearItemFromCart, addItem, removeItem } from '../../../redux/cart/cart.actions';
+import { updateItem, clearItemFromCart, addItem, removeItem } from '../../../redux/wishlist/wishlist.actions';
+import { addItem as addItemToCart } from '../../../redux/cart/cart.actions';
 
-const CartItem = (props) => {
+const WishlistCartItem = (props) => {
     const x = props.product.color.indexOf(props.product.selectedColor);
 
     const handleChangeSize = (event) => {
@@ -49,10 +49,8 @@ const CartItem = (props) => {
                     </div>
                     <div className="box-2">
                         <div className='cartItemPrice'> &#8377; {props.product.price}</div>
+                        <img src={require('../../../assets/mini-icons/add-to-cart.svg')} alt='Wishlist' style={{float: "right", margin: "5px 10px 10px 10px", height: '23px'}} onClick={() => {props.addItemToCart(props.product); props.removeItem(props.product)}}/>
                         <img src={require('../../../assets/mini-icons/icon_delete_outline_updated.png')} alt='Wishlist' className='cartItemRemove'  onClick={() => props.clearItem(props.product)} />
-                        <div className='cartItemAddOne' onClick={() => props.addItem(props.product)}>&#10095;</div>
-                        <div className='cartItemQuantity'>{props.product.quantity}</div>
-                        <div className='cartItemRemoveOne' onClick={() => props.removeItem(props.product)}>&#10094;</div>
                     </div>
                 </div>
             </div>
@@ -63,9 +61,9 @@ const CartItem = (props) => {
 const mapDispatchToProps = dispatch => ({
     updateItem : item => dispatch(updateItem(item)),
     clearItem : item => dispatch(clearItemFromCart(item)),
-    addItem: item => dispatch(addItem(item)),
-    removeItem: item => dispatch(removeItem(item))
+    removeItem: item => dispatch(removeItem(item)),
+    addItemToCart: item => dispatch(addItemToCart(item))
 });
 
 
-export default connect(null, mapDispatchToProps)(CartItem);
+export default connect(null, mapDispatchToProps)(WishlistCartItem);

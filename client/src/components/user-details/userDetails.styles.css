@@ -48,3 +48,21 @@
 .editIcon:hover {
     cursor: pointer;
 }
+
+.changeInput {
+    width: 46%;
+    text-align: center;
+    margin: 5px 0 5px 0;
+}
+
+.textCenter {
+    text-align: center;
+}
+
+.changeButton {
+    background-color: #003B46;
+    color: white;
+    border: none;
+    width: 50%;
+    height: 30px;
+}

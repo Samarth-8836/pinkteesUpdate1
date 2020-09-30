@@ -8,10 +8,15 @@ import { withRouter } from 'react-router';
 
 import StripeCheckoutButton from '../stripe-button/stripeButton.component';
 
-const Cart = ({ cartItems, history, totalCount }) => {
+const Cart = ({ cartItems, totalCount }) => {
+
+    const cartClickHandler = () => {
+        window.history.back();
+    }
 
     return (
         <div className='cartContainer'>
+        <div className='cartClose' onClick={() => cartClickHandler()} />
             <div className='cartTitle'>
             {
                 cartItems[0] ? <div>Cart</div> : <div className='cartTitle' style={{paddingTop: '100px'}}>Nothing to show here. Go pick something up first</div>

@@ -1,5 +1,9 @@
-.wishlist {
-    background-image: url(../../assets/mini-icons/icon_love_filled_updated.png);
+.wishlistFilled {
+    background-image: url(../../assets/mini-icons/wishlist-product-page-filled.svg);
+}
+
+.wishlistOutline {
+    background-image: url(../../assets/mini-icons/wishlist-product-page-outline.svg);
 }
 
 .cart {
