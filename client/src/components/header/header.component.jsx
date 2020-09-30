@@ -78,7 +78,7 @@ class Header extends Component {
                                                     
                                                     {
                                                         this.props.user ? 
-                                                        <div className='menuItem'><Link className='menuItem linkClass' to='/user' onClick={() => this.setState({isSwitchOn: false, isSwitchOnWishlist: false, isSwitchOnCart: false})} >ORDERS</Link></div>
+                                                        <div className='menuItem'><Link className='menuItem linkClass' to='/orders' onClick={() => this.setState({isSwitchOn: false, isSwitchOnWishlist: false, isSwitchOnCart: false})} >ORDERS</Link></div>
                                                         :
                                                         <div> </div>
                                                     }

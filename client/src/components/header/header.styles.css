@@ -162,14 +162,14 @@
 
 .cartClose {
     position: fixed;
-    top: 90px;
-    left: 10px;
+    margin-top: -15px;
+    margin-left: 10px;
     cursor: pointer;
-    background-image: url('../../assets/mini-icons/icon_arrow_back_updated.png');
+    background-image: url('../../assets/mini-icons/Icon_left_outline_colored.svg');
     background-repeat: no-repeat;
-    background-size: inherit;
     height: 21px;
     width: 20px;
+    background-size: cover;
 }
 
 .linkClass {

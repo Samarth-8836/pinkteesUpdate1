@@ -73,20 +73,44 @@ class UserDetails extends Component {
                 pass = doc.data().password;
                 if(passEntered === pass) {
                     const changedAt = new Date();
-                    const snapShot = userRef.set({
+                    let orders = doc.data().AAAtotalorders;
+                    let ZZZorder = `AAAnewOrder${orders}`;
+                    if(doc.data()[`AAAnewOrder${orders}`]) {
+                        let someOrder = doc.data()[`AAAnewOrder${orders}`];
+                        const snapShot = userRef.set({
                         displayName: displayName,
                         email: localStorage.getItem('userEmail'),
                         address: localStorage.getItem('userAddress'),
                         phone: localStorage.getItem('userMobile'),
                         password: pass,
-                        changedAt: changedAt 
+                        changedAt: changedAt,
+                        AAAtotalorders: orders,
+                        [ZZZorder]: someOrder
                     }).then(() => {
                         alert('Updated Succesfully');
                         this.setState({nameChange: false});
                         localStorage.setItem('userName', displayName);
                     }).catch(() => {
                         alert('Error updating. Try again later');
-                    });
+                    });    
+                    } else {
+
+                        const snapShot = userRef.set({
+                            displayName: displayName,
+                            email: localStorage.getItem('userEmail'),
+                            address: localStorage.getItem('userAddress'),
+                            phone: localStorage.getItem('userMobile'),
+                            password: pass,
+                            changedAt: changedAt,
+                            AAAtotalorders: orders
+                        }).then(() => {
+                            alert('Updated Succesfully');
+                            this.setState({nameChange: false});
+                            localStorage.setItem('userName', displayName);
+                        }).catch(() => {
+                            alert('Error updating. Try again later');
+                        });
+                    }
                 } else {
                     alert('Wrong Password. Try again');
                 }
@@ -107,20 +131,44 @@ class UserDetails extends Component {
                 pass = doc.data().password;
                 if(passEntered === pass) {
                     const changedAt = new Date();
-                    const snapShot = userRef.set({
+                    let orders = doc.data().AAAtotalorders;
+                    let ZZZorder = `AAAnewOrder${orders}`;
+                    if(doc.data()[`AAAnewOrder${orders}`]) {
+                        let someOrder = doc.data()[`AAAnewOrder${orders}`];
+                        const snapShot = userRef.set({
                         displayName: localStorage.getItem('userName'),
                         email: localStorage.getItem('userEmail'),
                         address: localStorage.getItem('userAddress'),
                         phone: displayPhone,
                         password: pass,
-                        changedAt: changedAt 
+                        changedAt: changedAt,
+                        AAAtotalorders: orders,
+                        [ZZZorder]: someOrder
                     }).then(() => {
                         alert('Updated Succesfully');
                         this.setState({phoneChange: false});
                         localStorage.setItem('userMobile', displayPhone);
                     }).catch(() => {
                         alert('Error updating. Try again later');
-                    });
+                    });    
+                    } else {
+
+                        const snapShot = userRef.set({
+                            displayName: localStorage.getItem('userName'),
+                            email: localStorage.getItem('userEmail'),
+                            address: localStorage.getItem('userAddress'),
+                            phone: displayPhone,
+                            password: pass,
+                            changedAt: changedAt,
+                            AAAtotalorders: orders
+                        }).then(() => {
+                            alert('Updated Succesfully');
+                            this.setState({phoneChange: false});
+                            localStorage.setItem('userMobile', displayPhone);
+                        }).catch(() => {
+                            alert('Error updating. Try again later');
+                        });
+                    }
                 } else {
                     alert('Wrong Password. Try again');
                 }
@@ -140,20 +188,43 @@ class UserDetails extends Component {
                 pass = doc.data().password;
                 if(passEntered === pass) {
                     const changedAt = new Date();
-                    const snapShot = userRef.set({
+                    let orders = doc.data().AAAtotalorders;
+                    let ZZZorder = `AAAnewOrder${orders}`;
+                    if(doc.data()[`AAAnewOrder${orders}`]) {
+                        let someOrder = doc.data()[`AAAnewOrder${orders}`];
+                        const snapShot = userRef.set({
                         displayName: localStorage.getItem('userName'),
                         email: displayEmail,
                         address: localStorage.getItem('userAddress'),
                         phone: localStorage.getItem('userMobile'),
                         password: pass,
-                        changedAt: changedAt
+                        changedAt: changedAt,
+                        AAAtotalorders: orders,
+                        [ZZZorder]: someOrder
                     }).then(() => {
                         alert('Updated Succesfully');
                         this.setState({emailChange: false});
                         localStorage.setItem('userEmail', displayEmail);
                     }).catch(() => {
                         alert('Error updating. Try again later');
-                    });
+                    });    
+                    } else {
+                        const snapShot = userRef.set({
+                            displayName: localStorage.getItem('userName'),
+                            email: displayEmail,
+                            address: localStorage.getItem('userAddress'),
+                            phone: localStorage.getItem('userMobile'),
+                            password: pass,
+                            changedAt: changedAt,
+                            AAAtotalorders: orders
+                        }).then(() => {
+                            alert('Updated Succesfully');
+                            this.setState({emailChange: false});
+                            localStorage.setItem('userEmail', displayEmail);
+                        }).catch(() => {
+                            alert('Error updating. Try again later');
+                        });
+                    }
                 } else {
                     alert('Wrong Password. Try again');
                 }
@@ -174,20 +245,44 @@ class UserDetails extends Component {
                 pass = doc.data().password;
                 if(passEntered === pass) {
                     const changedAt = new Date();
-                    const snapShot = userRef.set({
+                    let orders = doc.data().AAAtotalorders;
+                    let ZZZorder = `AAAnewOrder${orders}`;
+                    if(doc.data()[`AAAnewOrder${orders}`]) {
+                        let someOrder = doc.data()[`AAAnewOrder${orders}`];
+                        const snapShot = userRef.set({
                         displayName: localStorage.getItem('userName'),
                         email: localStorage.getItem('userEmail'),
                         address: displayAddress,
                         phone: localStorage.getItem('userMobile'),
                         password: pass,
-                        changedAt: changedAt
+                        changedAt: changedAt,
+                        AAAtotalorders: orders,
+                        [ZZZorder]: someOrder
                     }).then(() => {
                         alert('Updated Succesfully');
                         this.setState({addressChange: false});
                         localStorage.setItem('userAddress', displayAddress);
                     }).catch(() => {
                         alert('Error updating. Try again later');
-                    });
+                    });    
+                    } else {
+
+                        const snapShot = userRef.set({
+                            displayName: localStorage.getItem('userName'),
+                            email: localStorage.getItem('userEmail'),
+                            address: displayAddress,
+                            phone: localStorage.getItem('userMobile'),
+                            password: pass,
+                            changedAt: changedAt,
+                            AAAtotalorders: orders
+                        }).then(() => {
+                            alert('Updated Succesfully');
+                            this.setState({addressChange: false});
+                            localStorage.setItem('userAddress', displayAddress);
+                        }).catch(() => {
+                            alert('Error updating. Try again later');
+                        });
+                    }
                 } else {
                     alert('Wrong Password. Try again');
                 }
@@ -208,19 +303,42 @@ class UserDetails extends Component {
                 pass = doc.data().password;
                 if(passEntered === pass) {
                     const changedAt = new Date();
-                    const snapShot = userRef.set({
+                    let orders = doc.data().AAAtotalorders;
+                    let ZZZorder = `AAAnewOrder${orders}`;
+                    if(doc.data()[`AAAnewOrder${orders}`]) {
+                        let someOrder = doc.data()[`AAAnewOrder${orders}`];
+                        const snapShot = userRef.set({
                         displayName: localStorage.getItem('userName'),
                         email: localStorage.getItem('userEmail'),
                         address: localStorage.getItem('userAddress'),
                         phone: localStorage.getItem('userMobile'),
                         password: displayPassword,
-                        changedAt: changedAt
+                        changedAt: changedAt,
+                        AAAtotalorders: orders,
+                        [ZZZorder]: someOrder
                     }).then(() => {
                         alert('Updated Succesfully');
                         this.setState({passwordChange: false});
                     }).catch(() => {
                         alert('Error updating. Try again later');
-                    });
+                    });    
+                    } else {
+
+                        const snapShot = userRef.set({
+                            displayName: localStorage.getItem('userName'),
+                            email: localStorage.getItem('userEmail'),
+                            address: localStorage.getItem('userAddress'),
+                            phone: localStorage.getItem('userMobile'),
+                            password: displayPassword,
+                            changedAt: changedAt,
+                            AAAtotalorders: orders
+                        }).then(() => {
+                            alert('Updated Succesfully');
+                            this.setState({passwordChange: false});
+                        }).catch(() => {
+                            alert('Error updating. Try again later');
+                        });
+                    }
                 } else {
                     alert('Wrong Password. Try again');
                 }
@@ -232,6 +350,8 @@ class UserDetails extends Component {
 
     render(){
         return (
+            <React.Fragment>
+            <div className={ 'mensClose' } onClick={() => window.history.back()} />
             <div className='userDetailsContainer'>
                 <div className='userDetailsTitle'>{this.getUserName()}
                     {localStorage.getItem("userName") === 'null' ? '' : localStorage.getItem("userName")}
@@ -319,6 +439,7 @@ class UserDetails extends Component {
                     }
                 </div>
             </div>
+            </React.Fragment>
         );
     }
 }

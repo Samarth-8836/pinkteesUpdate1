@@ -25,6 +25,7 @@ import Checkout from './components/checkout/checkout.component';
 import productListMen from './productlist';
 import productListWomen from './productlistWomen';
 import ContactUs from './components/contact-us/contactus.component';
+import Orders from './components/orders/orders.component';
 
 
 import Diy from './components/diy/diy.component';
@@ -157,6 +158,7 @@ class App extends Component {
             <Route path='/cart' component={Cart} exact />
             <Route path='/wishlist' component={Wishlist} exact />
             <Route path='/user' component={UserDetails} exact />
+            <Route path='/orders' component={Orders} exact />
 
             </Switch>
             <SigninSignup />

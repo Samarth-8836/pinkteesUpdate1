@@ -21,6 +21,8 @@ class Signup extends Component {
 
         const {displayName, email, phone, password, confirmPassword} = this.state;
 
+        const AAAtotalorders = 0;
+
         if(password !== confirmPassword) {
             alert("Password don't match");
             return;
@@ -29,7 +31,7 @@ class Signup extends Component {
         try {
             const { user } = await fire.auth().createUserWithEmailAndPassword(email, password);
 
-            await createUserProfileDocument(user, { displayName, phone, password });
+            await createUserProfileDocument(user, { displayName, phone, password, AAAtotalorders });
 
             this.setState({
                 displayName: '',

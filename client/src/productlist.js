@@ -8,7 +8,8 @@ const productListMen = [
         color: ["Red", "Black"],
         reviews: [],
         moreLikeThis: [],
-        id: 1
+        id: 1,
+        orderStatus: "Arriving Soon"
     },
     {
         title: "Wonder Women",
@@ -19,7 +20,8 @@ const productListMen = [
         color: ["Red", "Black"],
         reviews: [],
         moreLikeThis: [],
-        id: 2
+        id: 2,
+        orderStatus: "Arriving Soon"
     }
 ]
 

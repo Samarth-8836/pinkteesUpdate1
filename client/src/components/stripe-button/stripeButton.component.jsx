@@ -2,9 +2,10 @@ import React from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 import axios from 'axios';
 
+import { firestore } from '../../firebase/firebase';
+
 const StripeCheckoutButton = ({ price, cartItems }) => {
 
-  
     const priceForStripe = price * 100;
     const publishableKey = 'pk_test_51HR1pjJRC5XKHkMyI4McPnc77vJIXxY0d1ZDXvzjIfoNUz5cEQpVXdNat5T0zNdOTTRlHPy5oG3miMr3n3gTOIDJ00AsdC8ECr';
 
@@ -20,7 +21,56 @@ const StripeCheckoutButton = ({ price, cartItems }) => {
         }
         })
         .then(response => {
-            alert('succesful payment');
+            
+
+
+            const userRef = firestore.doc(`users/${localStorage.getItem("uid")}`);
+              const snapShot = userRef.get().then((doc) => {
+                if(doc.exists) {
+                      let changedAt = new Date();
+                      let name = doc.data().displayName;
+                      let pass = doc.data().password;
+                      let mobile = doc.data().phone;
+                      let emailA = doc.data().email;
+                      let orders = doc.data().AAAtotalorders + 1;
+                      let someOrder = [];
+                      
+                        let ZZZorder = `AAAnewOrder${orders}`;
+                        console.log(orders);
+                        if(orders === 1)
+                        {
+                          console.log('First order');
+                          someOrder = cartItems;  
+                        } else {
+                          console.log('second order');
+                          let buf = orders - 1; 
+                          console.log(buf);
+                          console.log(doc.data()[`AAAnewOrder${buf}`]);
+                          someOrder = doc.data()[`AAAnewOrder${buf}`].concat(cartItems);
+                        }
+                        console.log(someOrder);
+                        const snapShot = userRef.set({
+                            displayName: name,
+                            email: emailA,
+                            phone: mobile,
+                            password: pass,
+                            changedAt: changedAt,
+                            AAAtotalorders: orders,
+                            [ZZZorder]: someOrder
+                        }).then(() => {
+                        }).catch(() => {
+                        });
+                      
+                }
+              });
+
+              alert('succesful payment');
+            
+
+
+
+
+
 
         })
         .catch(error => {
