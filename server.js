@@ -70,6 +70,30 @@ app.post('/imageUpload', (req, res) => {
 });
 
 
+// new one
+
+
+app.post('/pay', async (req, res) => {
+  const paymentIntent = await stripe.paymentIntents.create({
+    amount: 1099,
+    currency: 'inr',
+    payment_method_types: ['card'],
+  });
+  app.get('/secret', async (req, res) => {
+    const intent = paymentIntent// ... Fetch or create the PaymentIntent
+    res.json({client_secret: intent.client_secret});
+  });
+})
+
+
+
+
+
+
+
+// old one
+
+
 app.post('/payment', (req, res) => {
   const body = {
     source: req.body.token.id,
@@ -121,3 +145,9 @@ app.post('/payment', (req, res) => {
     }
   });
 }); 
+
+
+
+
+
+//// Razor pay one <-------------------------------------------

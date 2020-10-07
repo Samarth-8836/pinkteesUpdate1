@@ -1,0 +1,24 @@
+.contactEncloser {
+    margin: 0 auto;
+    width: 80%;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: 1px;
+    color: #073D49;
+    font-size: 25px;
+}
+
+.noDecorationLinks {
+    text-decoration: none;
+    color: inherit;
+}
+
+.whatsappImage {
+    display: inline-block;
+    background-image: url('../../assets/mini-icons/icon-whatsapp.svg');
+    width: 29px;
+    height: 29px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

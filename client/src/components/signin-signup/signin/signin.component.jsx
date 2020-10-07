@@ -38,8 +38,8 @@ class Signin extends Component {
     componentDidMount() {
         var newUser = localStorage.getItem("user");
         if(newUser !== "null") {
-            window.alert('Already Signed In. Now redirecting to home')
-            window.location = '/';
+            window.alert('Already Signed In. Now redirecting to sign up')
+            window.location = '/signup';
         }
     }
 

@@ -8,6 +8,8 @@ import { withRouter } from 'react-router';
 
 import StripeCheckoutButton from '../stripe-button/stripeButton.component';
 
+import RazorPayCheckoutButton from '../Razor-button/razorButton.component'; 
+
 const Cart = ({ cartItems, totalCount }) => {
 
     return (
@@ -35,7 +37,7 @@ const Cart = ({ cartItems, totalCount }) => {
                     
             }
             {
-                cartItems[0] ? <div className='checkoutBtn'><StripeCheckoutButton cartItems={cartItems} price={totalCount} /></div> : <div />
+                cartItems[0] ? <div className='checkoutBtn'><RazorPayCheckoutButton cartItems={cartItems} price={totalCount} /></div> : <div />
             }
         </div>
     );
@@ -48,3 +50,12 @@ const mapStsteToProps = ({ cart: { cartItems } }) => ({
 });
 
 export default withRouter(connect(mapStsteToProps)(Cart));
+
+
+
+
+// removed
+
+// {
+//     cartItems[0] ? <div className='checkoutBtn'><StripeCheckoutButton cartItems={cartItems} price={totalCount} /></div> : <div />
+// }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './userDetails.styles.css';
 import { firestore } from '../../firebase/firebase';
+import firebase from 'firebase/app';
 
 
 
@@ -187,6 +188,18 @@ class UserDetails extends Component {
             if(doc.exists) {
                 pass = doc.data().password;
                 if(passEntered === pass) {
+
+                    var user = firebase.auth().currentUser;
+
+                    user.updateEmail(displayEmail).then(function() {
+                        // Update successful.
+                        // alert('Updated Succesfully');
+                    }).catch(function(error) {
+                        // An error happened.
+                        alert('Error updating. Try again later');
+                    });
+
+
                     const changedAt = new Date();
                     let orders = doc.data().AAAtotalorders;
                     let ZZZorder = `AAAnewOrder${orders}`;
@@ -206,7 +219,7 @@ class UserDetails extends Component {
                         this.setState({emailChange: false});
                         localStorage.setItem('userEmail', displayEmail);
                     }).catch(() => {
-                        alert('Error updating. Try again later');
+                        // alert('Error updating. Try again later');
                     });    
                     } else {
                         const snapShot = userRef.set({
@@ -222,7 +235,7 @@ class UserDetails extends Component {
                             this.setState({emailChange: false});
                             localStorage.setItem('userEmail', displayEmail);
                         }).catch(() => {
-                            alert('Error updating. Try again later');
+                            // alert('Error updating. Try again later');
                         });
                     }
                 } else {
@@ -296,12 +309,21 @@ class UserDetails extends Component {
 
         let pass ='';
         let passEntered = this.state.password;
-        let displayPassword = this.state.password;
+        let displayPassword = this.state.newpassword;
         const userRef = firestore.doc(`users/${localStorage.getItem("uid")}`);
         const snapShot = userRef.get().then((doc) => {
             if(doc.exists) {
                 pass = doc.data().password;
                 if(passEntered === pass) {
+                    var user = firebase.auth().currentUser;
+
+                    user.updatePassword(displayPassword).then(function() {
+                        // Update successful.
+                      }).catch(function(error) {
+                            alert('Error updating. Try again later');
+                      });
+                      
+
                     const changedAt = new Date();
                     let orders = doc.data().AAAtotalorders;
                     let ZZZorder = `AAAnewOrder${orders}`;
@@ -320,7 +342,7 @@ class UserDetails extends Component {
                         alert('Updated Succesfully');
                         this.setState({passwordChange: false});
                     }).catch(() => {
-                        alert('Error updating. Try again later');
+                        // alert('Error updating. Try again later');
                     });    
                     } else {
 
@@ -336,7 +358,7 @@ class UserDetails extends Component {
                             alert('Updated Succesfully');
                             this.setState({passwordChange: false});
                         }).catch(() => {
-                            alert('Error updating. Try again later');
+                            // alert('Error updating. Try again later');
                         });
                     }
                 } else {

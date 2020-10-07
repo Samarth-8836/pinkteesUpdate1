@@ -44,6 +44,13 @@ class Diy extends Component {
     retrysaveImage = () => {
         this.saveImage();
     }
+
+    initia = () => {
+        if(localStorage.getItem('user') === 'null') {
+            alert('Sign in first to access this page');
+            window.location= '/signin';
+        }
+    }
       
     saveImage = () => {
         var node = document.getElementById('newDivId');
@@ -100,6 +107,7 @@ class Diy extends Component {
     render(){
         return(
             <div>
+                {this.initia()}
                 <input type='file' className='image-upload' accept='image/*' onChange={this.imageHandeler} />
                 <div id='newDivId'>
                     <div className='background-plain-tshirt' style={{backgroundImage: `url(${background})`, height: '500px', backgroundSize: 'cover'}}>
