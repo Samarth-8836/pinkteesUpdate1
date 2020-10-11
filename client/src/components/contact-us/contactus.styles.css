@@ -1,3 +1,13 @@
+.contactTitle {
+    margin: 5px 0px 5px 10px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: 1px;
+    color: #073D49;
+    font-size: 50px;
+}
+
 .contactEncloser {
     margin: 0 auto;
     width: 80%;
@@ -21,4 +31,15 @@
     height: 29px;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+@media only screen and (min-width: 768px) {
+    .contactEncloser {
+        font-size: 35px;
+    }
+    
+    .contactTitle {
+        margin: 5px 0px 5px 10px;
+        font-size: 70px;
+    }
 }

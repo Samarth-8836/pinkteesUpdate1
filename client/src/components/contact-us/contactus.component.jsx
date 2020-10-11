@@ -5,8 +5,8 @@ const ContactUs = () => {
     return(
         <React.Fragment>
             <div className={ 'mensClose' } onClick={() => window.history.back()} />
-            <div className='cartTitle'>
-                Contact Us
+            <div className='contactTitle'>
+                CONTACT US
             </div>
             <div className='contactEncloser'>
                 <br />Call us on +91 1234567890<br/>

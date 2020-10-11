@@ -40,7 +40,7 @@ const Banner = () => {
             { photos.map((photo) => {
                 return (
                     <div>
-                        <img width="100%" src={photo.url} alt='bannerones' height='230px'/>
+                        <img width="100%" src={photo.url} alt='bannerones' className='imgHeightAdjustBanner'/>
                     </div>
                 );
             })}

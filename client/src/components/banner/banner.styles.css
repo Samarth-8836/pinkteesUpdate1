@@ -28,3 +28,14 @@
     transform: translateY(-35px);
     background-color: #aec2c7b9;
 }
+
+
+.imgHeightAdjustBanner {
+  height: 230px;
+}
+
+@media only screen and (min-width: 768px) {
+  .imgHeightAdjustBanner {
+    height: 820px;
+  }
+}

@@ -6,7 +6,7 @@ const MainCatagory = () => {
     return (
         <div>
             <div className='mainCatagoryTitle'>
-                Choose A Catagory
+                CHOOSE YOUR CATAGORY
             </div>
             <div className='mainCatagoryDisplayContainer'>
                 

@@ -180,3 +180,24 @@
 .linkClass:visited {
     color: inherit;
 }
+
+
+
+
+@media only screen and (min-width: 768px) {
+    .menuContainer{
+        width: 25%;
+    }
+
+    .menuItems {
+        font-size: 25px;
+    }
+
+    .menuTitle {
+        color: #073D49;
+        font-size: 60px;
+        margin: 0px 0px 55px 10px;
+        text-align: center;
+        margin-top: 20%;
+    }
+}

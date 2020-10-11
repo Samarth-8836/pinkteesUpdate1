@@ -32,8 +32,9 @@
     font-size: 50px;
 }
 
-@media all and (min-width: 1900px) {
-    .sellingHotDisplayName {
-        font-size: 30px;
+@media only screen and (min-width: 768px) {
+    .sellingHotTitle {
+        margin: 25px 0px 5px 70px;
+        font-size: 70px;
     }
 } 

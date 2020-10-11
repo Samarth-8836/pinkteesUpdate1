@@ -22,3 +22,23 @@
     font-weight: 28;
     color: #919191;
 }
+
+@media only screen and (min-width: 768px) {
+    .customBannerImage {
+        display: block; 
+        width: 60vw;
+        height: 500px;
+        margin: 0 auto;
+    }
+    .customBannerDescription {
+        display: block;
+        max-width: max-content;
+        margin: 0 auto;
+        font-size: 22px;
+    }
+
+    .customBannerTitle {
+        margin: 25px 0px 5px 70px;
+        font-size: 70px;
+    }
+}

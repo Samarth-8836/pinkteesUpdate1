@@ -61,7 +61,7 @@ const ProductDisplay = (props) => {
                 { photos.map((photo) => {
                     return (
                         <div>
-                            <img width="100%" height='400px' src={photo.url} alt='bannerones'/>
+                            <img width="100%" className='productDisplayImage' src={photo.url} alt='bannerones'/>
                         </div>
                     );
                 })}

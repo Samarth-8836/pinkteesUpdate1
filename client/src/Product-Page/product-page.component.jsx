@@ -48,8 +48,10 @@ const ProductPage = () => {
 
     return(
         <div>
-            <ProductDisplay product={productMain[0]} />
-            <PriceItemDisplay product={productMain[0]} />
+            <div className='flexForDisplay'>
+                <ProductDisplay product={productMain[0]} />
+                <PriceItemDisplay product={productMain[0]} />
+            </div>
             <ColorSize product={productMain[0]} />    
             <Description product={productMain[0]} />
             

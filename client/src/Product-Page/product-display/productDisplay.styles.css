@@ -45,3 +45,40 @@
     border: 0.5px solid gray;
     margin: 5px;
 }
+
+.productDisplayImage{
+    height: 400px;
+}
+
+@media only screen and (min-width: 768px) {
+    .productDisplayImage{
+        height: 700px;
+    }
+
+    .productDisplayContainer {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .productDisplayName {
+        color: #073D49;
+        margin: 5px 0px 5px 10px;
+        font-family: 'Barlow Condensed', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        letter-spacing: 1px;
+        font-size: 25px;
+    }
+    
+    .productDisplaySliderContainer {
+        padding: 10px;
+    }
+    
+    .productDisplayMainContainer {
+        border: 0.5px solid gray;
+        display: block;
+        width: 40%;
+        margin: 5px auto;
+        justify-content: center;
+    }
+}

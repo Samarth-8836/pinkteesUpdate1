@@ -2,7 +2,7 @@ import React from 'react';
 
 const RazorPayCheckoutButton = (props) => {
     return(
-        "<div> HEEllo </div>"
+        <div> HEEllo </div>
     );
 }
 

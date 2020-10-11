@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './orders.styles.css';
 
 import { firestore } from '../../firebase/firebase';
 
@@ -35,7 +36,7 @@ class Orders extends Component {
             <React.Fragment>
             <div className='cartContainer'>
             <div className='cartClose' onClick={() => window.history.back()} />
-                <div className='cartTitle'>Orders</div>
+                <div className='ordersTitle'>ORDERS</div>
                 {
                     this.state.finalOrderArr === undefined ? <div className='cartTitle' style={{paddingTop: '100px'}}>No Purchases Made.<br /> Go Pick Something.</div> :
                     this.state.finalOrderArr.map( order => <OrderItem key={order.id} order={order} /> )

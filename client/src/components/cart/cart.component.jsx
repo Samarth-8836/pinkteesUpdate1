@@ -17,7 +17,7 @@ const Cart = ({ cartItems, totalCount }) => {
         <div className='cartClose' onClick={() => window.history.back()} />
             <div className='cartTitle'>
             {
-                cartItems[0] ? <div>Cart</div> : <div className='cartTitle' style={{paddingTop: '100px'}}>Nothing to show here. Go pick something up first</div>
+                cartItems[0] ? <div className='cartTitleResponsive'>CART</div> : <div className='cartTitle' style={{paddingTop: '100px'}}>Nothing to show here. Go pick something up first</div>
             }
             </div>
             {

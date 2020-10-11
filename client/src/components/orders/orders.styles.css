@@ -1,0 +1,16 @@
+.ordersTitle {
+    margin: 5px 0px 5px 10px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: 1px;
+    color: #073D49;
+    font-size: 50px;
+}
+
+@media only screen and (min-width: 768px) {
+    .ordersTitle {
+        margin: 5px 0px 5px 10px;
+        font-size: 70px;
+    }
+}

@@ -17,7 +17,7 @@ const Wishlist = ({ wishlistItems }) => {
         <div className='cartClose' onClick={() => wishlistClickHandler()} />
             <div className='cartTitle'>
             {
-                wishlistItems[0] ? <div>Wishlist</div> : <div className='cartTitle' style={{paddingTop: '100px'}}>Nothing to show here. Go pick something up first</div>
+                wishlistItems[0] ? <div className='cartTitleResponsive'>WISHLIST</div> : <div className='cartTitle' style={{paddingTop: '100px'}}>Nothing to show here. Go pick something up first</div>
             }
             </div>
             {
