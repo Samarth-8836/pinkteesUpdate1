@@ -55,7 +55,7 @@ const ProductPage = () => {
             <ColorSize product={productMain[0]} />    
             <Description product={productMain[0]} />
             
-            <MoreLikeThis />
+            
         </div>
     );
 }
@@ -65,3 +65,4 @@ export default ProductPage;
 
 
 // <CustomerReviews /> is left
+// <MoreLikeThis /> is left

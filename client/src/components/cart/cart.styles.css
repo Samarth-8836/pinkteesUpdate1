@@ -117,4 +117,8 @@
     .cartTitleResponsive {
         font-size: 70px;
     }
+
+    .cartCheckout {
+        width: 25%;
+    }
 }

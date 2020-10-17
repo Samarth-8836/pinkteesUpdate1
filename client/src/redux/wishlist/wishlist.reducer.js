@@ -26,12 +26,6 @@ const wishlistReducer = (state = INITIAL_STATE, action) => {
                     if( (cartItem.id !== action.payload.id) ){
                         return true;
                     } 
-                    if( (cartItem.selectedColor !== action.payload.selectedColor) ) {
-                        return true;
-                    }
-                    if( (cartItem.selectedSize !== action.payload.selectedSize) ) {
-                        return true;
-                    }
                     return false;
                 })
             };

@@ -5,5 +5,15 @@
     letter-spacing: 1px;
     font-size: 25px;
     width: fit-content;
-    background-color: black;
+    align-self: flex-start;
+}
+
+@media only screen and (min-width: 768px) {
+    .priceItemDisplay {
+        float: left;
+        display: block;
+        margin-top: 100px;
+        margin-left: 90px;
+        font-size: 40px;
+    }
 }

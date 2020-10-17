@@ -69,6 +69,7 @@ class mens extends Component {
                     }
                 
                 </div>
+                <div className='searchBox'>SEARCH BOX HERE</div>
             </div>
         );
     }

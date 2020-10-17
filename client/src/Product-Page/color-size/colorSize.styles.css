@@ -12,3 +12,25 @@
     font-size: 20px;
     border: none;
 }
+
+@media only screen and (min-width: 768px) {
+    .colorSizeSelector {
+        display: block;
+        float: right;
+        width: 20%;
+        margin-top: 160px;
+        margin-left: 12px;
+        margin-right: 1%;
+    }
+
+    .colorSizeContainer {
+        display: block;
+    }
+
+    .orderNowBtn {
+        float: right;
+        width: 40%;
+        margin-left: 177px;
+        margin-right: 1.5%;
+    }
+}

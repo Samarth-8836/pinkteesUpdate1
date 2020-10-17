@@ -5,6 +5,10 @@ const path = require('path');
 
 const nodemailer = require('nodemailer');
 
+const Razorpay = require('razorpay');
+
+const shortid = require('shortid');
+
 if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
@@ -151,3 +155,45 @@ app.post('/payment', (req, res) => {
 
 
 //// Razor pay one <-------------------------------------------
+
+
+app.post('/verification', (req, res) => {
+  const secret = '123456';
+
+  const crypto = require('crypto');
+  const shasum = crypto.createHmac('sha256', secret);
+  shasum.update(JSON.stringify(req.body));
+  const digest = shasum.digest('hex');
+
+  if(digest === req.header['x-razorpay-signature']) {
+    //process request
+    res.json({status: 'ok'});
+  } else {
+    //pass it
+    res.status(502);
+  }
+
+})
+
+const razorpay = new Razorpay({
+  key_id: 'rzp_test_WM7H5Thu1bqvr4',
+  key_secret: 'vrurBGoh2ikMEjMZVeDtoLKr'
+});
+
+
+app.post('/razorpay', async (req, res) => {
+
+  const payment_capture = 1;
+
+  const amount = req.body.amount;
+  const currency = 'INR';
+
+  const response = razorpay.orders.create({amount, currency, receipt: shortid.generate(), payment_capture})
+  console.log(response);
+  res.json({
+    id: response.id,
+    currency: 'INR',
+    amount: response.amount
+  })
+
+});

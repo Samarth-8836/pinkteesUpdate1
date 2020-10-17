@@ -67,7 +67,7 @@
         font-style: normal;
         font-weight: normal;
         letter-spacing: 1px;
-        font-size: 25px;
+        font-size: 40px;
     }
     
     .productDisplaySliderContainer {
@@ -76,9 +76,22 @@
     
     .productDisplayMainContainer {
         border: 0.5px solid gray;
-        display: block;
         width: 40%;
-        margin: 5px auto;
-        justify-content: center;
+        /* display: block;
+        margin: 5px auto; */
+        float: left;
+        margin-left: 100px;
+    }
+
+    .iconComponent {
+        padding: 15px 15px;
+        cursor: pointer;
+        list-style-type: none;
+        margin: 9px;
+        height: 7px;
+        width: 7px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        float: left;
     }
 }

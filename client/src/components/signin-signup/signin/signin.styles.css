@@ -33,3 +33,15 @@
     border: none;
     color: white;
 }
+
+@media only screen and (min-width: 768px) {
+    #fullWidth {
+        width: 99%;
+        height: 50px;
+        margin: 5px;
+    }
+
+    .signupTitle {
+        font-size: 85px;
+    }
+}

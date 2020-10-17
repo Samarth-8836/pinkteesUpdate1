@@ -16,3 +16,28 @@
     color: #383636;
     margin: 5px 10px 10px 10px;
 }
+
+
+@media only screen and (min-width: 768px) {
+    .descriptionConatiner {
+        clear: both;
+        margin-top: 750px;
+    }
+
+    .descriptionTitle{
+        color: #073D49;
+        font-family: 'Barlow Condensed', sans-serif;
+        font-weight: bold;
+        letter-spacing: 1px;
+        font-size: 40px;
+        margin: 10px 10px 5px 10px;
+    }
+
+    .descriptionContent {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: lighter;
+        font-size: 22px;
+        color: #383636;
+        margin: 5px 10px 10px 10px;
+    }
+}
