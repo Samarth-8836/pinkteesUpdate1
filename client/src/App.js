@@ -26,6 +26,7 @@ import productListMen from './productlist';
 import productListWomen from './productlistWomen';
 import ContactUs from './components/contact-us/contactus.component';
 import Orders from './components/orders/orders.component';
+import Footer from './components/footer/footer.component';
 
 
 import Diy from './components/diy/diy.component';
@@ -93,6 +94,7 @@ class App extends Component {
         <MainCatagory />
           <CustomBanner />
         <SellingHot />
+        <Footer />
       </div>
     );
   }
@@ -101,19 +103,28 @@ class App extends Component {
 
   mens = () => {
     return(
+      <div>
       <Mens />
+      <Footer />
+      </div>
     );
   }
 
   womens = () => {
     return(
+      <div>
       <Womens />
+      <Footer/>
+      </div>
     );
   }
 
   ProductPage = () => {
     return(
+      <div>
       <ProductPage />
+      <Footer/>
+      </div>
     );
   }
 
@@ -162,7 +173,6 @@ class App extends Component {
 
             </Switch>
             <SigninSignup />
-            Footer
           </div>
         </Router>
       </BrowserRouter>

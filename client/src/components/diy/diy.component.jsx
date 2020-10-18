@@ -3,7 +3,7 @@ import { useRef } from "react";
 import useDraggable from "./useDraggable";
 import domtoimage from 'dom-to-image';
 import axios from 'axios';
-import background from '../../assets/Mens/mens_blue.png';
+import background from '../../assets/white.png';
 
 
 
@@ -110,8 +110,8 @@ class Diy extends Component {
                 {this.initia()}
                 <input type='file' className='image-upload' accept='image/*' onChange={this.imageHandeler} />
                 <div id='newDivId'>
-                    <div className='background-plain-tshirt' style={{backgroundImage: `url(${background})`, height: '500px', backgroundSize: 'cover'}}>
-                        <this.DraggableCard><img src={this.state.image0} alt='your logo'/></this.DraggableCard>
+                    <div className='background-plain-tshirt' style={{backgroundImage: `url(${background})`, backgroundSize: 'cover'}}>
+                        <this.DraggableCard><img src={this.state.image0} alt=' '/></this.DraggableCard>
                     </div>   
                 </div>
                 <button onClick={this.saveImage} className='saveButton'>Save Now</button>

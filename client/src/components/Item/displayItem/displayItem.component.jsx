@@ -1,14 +1,20 @@
 import React from 'react';
 import './displayItem.styles.css';
+import { Link } from 'react-router-dom';
 
-const DisplayItem = () => {
+const DisplayItem = (props) => {
+    const imgS = props.product.imgUrl[0];
     return(
         <div className='Display'>
             <div className='DisplayImage'>
-                <img src={'https://firebasestorage.googleapis.com/v0/b/pinktees-a082b.appspot.com/o/WonderWomen.png?alt=media&token=ff7d9ab1-355b-433b-a0c7-566a874c08ac'} alt='Mens Catagory' className='DisplayImage' />
+                <Link className='linkClass' to={`/mens/${props.product.id}`}>
+                    <img src={imgS} alt='Mens Catagory' className='DisplayImage' />
+                </Link>
             </div>
             <div className='DisplayName'>
-                Wonder Women
+            <Link className='linkClass' to={`/mens/${props.product.id}`}>
+                {props.product.title}
+            </Link>
             </div>
         </div>
     );

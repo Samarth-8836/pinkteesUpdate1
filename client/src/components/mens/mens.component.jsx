@@ -25,16 +25,18 @@ class mens extends Component {
     }
 
     componentDidMount() {
-        var prevScrollpos = window.pageYOffset;
-        window.onscroll = function() {
-            var currentScrollPos = window.pageYOffset;
-            if ((prevScrollpos > currentScrollPos) || (currentScrollPos == 0)) {
-                document.getElementById("searchbar").style.bottom = "5px";
-            } else {
-                document.getElementById("searchbar").style.bottom = "-50px";
-            }
-            prevScrollpos = currentScrollPos;
-        } 
+        if(window.location.href.includes('mens')){
+            var prevScrollpos = window.pageYOffset;
+            window.onscroll = function() {
+                var currentScrollPos = window.pageYOffset;
+                if ((prevScrollpos > currentScrollPos) || (currentScrollPos == 0)) {
+                    document.getElementById("searchbar").style.bottom = "5px";
+                } else {
+                    document.getElementById("searchbar").style.bottom = "-50px";
+                }
+                prevScrollpos = currentScrollPos;
+            } 
+        }
     }
 
     
@@ -76,7 +78,7 @@ class mens extends Component {
                                                     <div />
 
                                                 :
-                                                    <div className='mensDisplay' onClick={() => this.clicked(men)}>
+                                                    <div className='mensDisplay' onClick={() => {this.clicked(men)}}>
                                                         <div className='mensDisplayImage'>
                                                             <img src={men['imgUrl']} alt='Mens Catagory' className='mensDisplayImage' />
                                                         </div>
