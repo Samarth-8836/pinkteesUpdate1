@@ -162,6 +162,7 @@ class App extends Component {
 
             </Switch>
             <SigninSignup />
+            Footer
           </div>
         </Router>
       </BrowserRouter>

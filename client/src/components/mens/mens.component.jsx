@@ -3,6 +3,8 @@ import './mens.styles.css';
 import productListMen from '../../productlist.js';
 import { Redirect } from 'react-router';
 
+import Headroom from 'react-headroom';
+
 
 class mens extends Component {
 
@@ -11,7 +13,9 @@ class mens extends Component {
 
         this.state = {
             clicked : false,
-            whichClicked : "some"
+            whichClicked : "some",
+            searchField : '',
+            filteredList : []
         }
     }
 
@@ -20,9 +24,35 @@ class mens extends Component {
         this.setState({whichClicked: men});
     }
 
+    componentDidMount() {
+        var prevScrollpos = window.pageYOffset;
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            if ((prevScrollpos > currentScrollPos) || (currentScrollPos == 0)) {
+                document.getElementById("searchbar").style.bottom = "5px";
+            } else {
+                document.getElementById("searchbar").style.bottom = "-50px";
+            }
+            prevScrollpos = currentScrollPos;
+        } 
+    }
+
+    
+
     
 
     render() {
+        if(this.state.searchField !== '') {
+            this.state.filteredList = productListMen.filter((men) => {
+                if (men.title.toLowerCase().includes(this.state.searchField.toLowerCase())) {
+                    return true;
+                }
+            });
+        } else {
+            this.state.filteredList = productListMen.map((x) => x);
+        }
+        
+
         return(
             <div>
                 <div className={ this.state.clicked ? 'displayItemContainerFalse' : 'mensClose' } onClick={() => window.history.back()} />
@@ -35,28 +65,32 @@ class mens extends Component {
                     
                         
                         {
-                            productListMen.map( (men) => {
-                                return(
-                                    <div>
-                                        {
-                                            this.state.clicked ? 
-                                            
-                                                <div />
+                            this.state.filteredList[0] ? 
 
-                                            :
-                                                <div className='mensDisplay' onClick={() => this.clicked(men)}>
-                                                    <div className='mensDisplayImage'>
-                                                        <img src={men['imgUrl']} alt='Mens Catagory' className='mensDisplayImage' />
+                                this.state.filteredList.map( (men) => {
+                                    return(
+                                        <div>
+                                            {
+                                                this.state.clicked ? 
+                                                
+                                                    <div />
+
+                                                :
+                                                    <div className='mensDisplay' onClick={() => this.clicked(men)}>
+                                                        <div className='mensDisplayImage'>
+                                                            <img src={men['imgUrl']} alt='Mens Catagory' className='mensDisplayImage' />
+                                                        </div>
+                                                        <div className='mensDisplayName'>
+                                                            {men['title']}
+                                                        </div>
                                                     </div>
-                                                    <div className='mensDisplayName'>
-                                                        {men['title']}
-                                                    </div>
-                                                </div>
-                                        }
-                                        
-                                    </div>
-                                );
-                            })
+                                            }
+                                            
+                                        </div>
+                                    );
+                                })
+                            :
+                            <div className='cartTitle' style={{paddingTop: '100px'}}>No product found. Try searching with fewer keywords.</div>
                         }
 
                     </div>
@@ -69,7 +103,12 @@ class mens extends Component {
                     }
                 
                 </div>
-                <div className='searchBox'>SEARCH BOX HERE</div>
+            
+                <div className='searchBox'>
+                    <input type='text' placeholder='Search' id='searchbar' className='searchBoxSearch' onChange={e => {this.setState({ searchField : e.target.value})}}/>
+                </div>
+                
+        
             </div>
         );
     }
